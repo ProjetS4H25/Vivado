@@ -101,3 +101,11 @@
 */*/*/bd/*/ip/*/*.tcl
 hw_handoff
 ipshared
+
+# Ignore all .c and .h files everywhere
+*.c
+*.h
+
+# Allow .c and .h files in src/ and all its subdirectories
+!project/**/*.c
+!project/**/*.h
