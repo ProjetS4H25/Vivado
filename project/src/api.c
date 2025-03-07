@@ -28,8 +28,16 @@ void apiReset() { //1111 1100 0000 0000 0000 0000 0000 0000 FC00 0000
     Xil_Out32(0x00, 0xFC000000);
 }
 
-void apiSetActorPosition() {
+//intialise la position d un acteur dans l affichage
+//opcode 100001
+void apiSetActorPosition(char actorID, int positionX, int positionY) { //oooo ooii iixx xxxx xxxx yyyy yyyy yy00
+    actorID &= 0x0F;    // 4 bits
+    positionX &= 0x03FF;// 10 bits
+    positionY &= 0x03FF;// 10 bits
 
+    int instruction = (0b000010 << 26) | (actorID << 22) | (positionX << 12) | (positionY << 2);
+    
+    Xil_Out32(0x00, instruction);
 }
 
 #endif
