@@ -2,7 +2,7 @@
 #define API_H
 
 void apiMoveViewPort();
-void apiMoveActor();
+void apiMoveActor(char actorID, int offsetX, int offsetY);
 void apiSetBackgroundBuffer();
 void apiReset();
 void apiSetActorPosition();
