@@ -3,6 +3,8 @@
 
 #include "api.h"
 
+// Déplace le viewport selon un certain offset en X
+// opcode 0b000001
 void apiMoveViewPort(int offsetX)
 {
     offsetX &= 0x3F; // 6 bits
