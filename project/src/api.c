@@ -1,6 +1,8 @@
 #ifndef API_C
 #define API_C
 
+#include "api.h"
+
 void apiMoveViewPort() {
 
 }
