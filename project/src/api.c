@@ -19,8 +19,14 @@ void apiMoveActor(char actorID, int offsetX, int offsetY) { //oooo ooii iixx xxx
     Xil_Out32(0x00, instruction);
 }
 
-void apiSetBackgroundBuffer() {
+void apiSetBackgroundBuffer(char tuileID, char posX, char posY ) {//oooo ooii iixx xxxx yyyy yy00 0000 0000
+    tuileID &= 0x0F;    // 4 bits
+    posX &= 0x3F;    // 6 bits
+    posY &= 0x3F;    // 6 bits
 
+    int instruction = (0b000100 << 26) | (tuileID << 22) | (posX << 16) | (posY << 10);
+
+    Xil_Out32(0x00, instruction);
 }
 
 //Reintialise le jeu dans son etat de depart connu
