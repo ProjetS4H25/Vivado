@@ -7,7 +7,7 @@
 **Note** : Les probabilités qu'un problème survienne sont élevées, envoyez un message au tuteur si vous êtes bloqué pour plus de 20 minutes (**Teams**, **courriel**)
 
 1. Clonez le présent projet dans `C:\Travail` avec la commande suivante :
-   1. `git clone git@gitlab.gegi.usherbrooke.ca:genie/acad/referentiels-etudiants/gif402-amorce-projet.git s4InfoAtelier4`
+   1. `git clone https://github.com/ProjetS4H25/Vivado.git s4InfoAtelier4`
    > Il est primordiale de garder le projet avec le même nom, et **ne pas mettre dans *one drive***!!!
 1. Ouvrez **Vivado 2020.2**, puis cliquez sur *Open project*, n'avigez jusqu'à `C:\Travail\s4InfoAtelier4`, puis sélectionnez `s4InfoAtelier4.xpr` puis faire **OK**;
 1. Le projet devrait se charger adéquatement. 
