@@ -2,25 +2,35 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Fri Mar  7 16:15:34 2025
-# Process ID: 17704
-# Current directory: C:/Travail/s4InfoAtelier4
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10420 C:\Travail\s4InfoAtelier4\s4InfoAtelier4.xpr
-# Log file: C:/Travail/s4InfoAtelier4/vivado.log
-# Journal file: C:/Travail/s4InfoAtelier4\vivado.jou
+# Start of session at: Mon Mar 10 16:08:50 2025
+# Process ID: 34732
+# Current directory: C:/Travail/S4InfoAtelier4
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1960 C:\Travail\S4InfoAtelier4\s4InfoAtelier4.xpr
+# Log file: C:/Travail/S4InfoAtelier4/vivado.log
+# Journal file: C:/Travail/S4InfoAtelier4\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project C:/Travail/s4InfoAtelier4/s4InfoAtelier4.xpr
+open_project C:/Travail/S4InfoAtelier4/s4InfoAtelier4.xpr
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Travail/s4InfoAtelier4/s4InfoAtelier4.ipdefs/mycolorRegister_1.0'.
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Travail/s4InfoAtelier4/s4InfoAtelier4.ipdefs/pixelDataToVideoStream_1.0'.
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Travail/s4InfoAtelier4/s4InfoAtelier4.ipdefs/rgb2dvi'.
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Travail/s4InfoAtelier4/s4InfoAtelier4.ipdefs/tmds_v1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Travail/S4InfoAtelier4/s4InfoAtelier4.ipdefs/mycolorRegister_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Travail/S4InfoAtelier4/s4InfoAtelier4.ipdefs/pixelDataToVideoStream_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Travail/S4InfoAtelier4/s4InfoAtelier4.ipdefs/rgb2dvi'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Travail/S4InfoAtelier4/s4InfoAtelier4.ipdefs/tmds_v1_0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
-open_project: Time (s): cpu = 00:00:34 ; elapsed = 00:00:21 . Memory (MB): peak = 1119.832 ; gain = 0.000
-INFO: [Vivado 12-8231] Launching Vitis
-INFO: [Vivado 12-417] Running vitis
-INFO: [Vivado 12-8232] Vitis launch initiated. Please check console for any further messages.
+open_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 1149.602 ; gain = 34.109
 update_compile_order -fileset sources_1
+file mkdir C:/Travail/S4InfoAtelier4/s4InfoAtelier4.srcs/sim_1/new
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open C:/Travail/S4InfoAtelier4/s4InfoAtelier4.srcs/sim_1/new/tb_color_converter.vhd w ]
+add_files -fileset sim_1 C:/Travail/S4InfoAtelier4/s4InfoAtelier4.srcs/sim_1/new/tb_color_converter.vhd
+update_compile_order -fileset sim_1
+set_property top tb_cc [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+set_property top atelier4_wrapper [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Mar 10 16:13:28 2025...
