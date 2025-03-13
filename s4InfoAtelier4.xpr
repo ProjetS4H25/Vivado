@@ -50,7 +50,7 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="zybo-z7-10"/>
-    <Option Name="WTXSimLaunchSim" Val="0"/>
+    <Option Name="WTXSimLaunchSim" Val="1"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -95,20 +95,14 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/ip_1/bd_0837_vsc_0.xci">
-          <Proxy FileSetName="bd_0837_vsc_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/ip_2/bd_0837_hsc_0.xci">
-          <Proxy FileSetName="bd_0837_hsc_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_testPatternGen2_0_0/atelier4_testPatternGen2_0_0.xci">
-          <Proxy FileSetName="atelier4_testPatternGen2_0_0"/>
+        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_axi_vdma_0_0/atelier4_axi_vdma_0_0.xci">
+          <Proxy FileSetName="atelier4_axi_vdma_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_processing_system7_0_0/atelier4_processing_system7_0_0.xci">
           <Proxy FileSetName="atelier4_processing_system7_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_axi_vdma_0_0/atelier4_axi_vdma_0_0.xci">
-          <Proxy FileSetName="atelier4_axi_vdma_0_0"/>
+        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_v_proc_ss_0_0/atelier4_v_proc_ss_0_0.xci">
+          <Proxy FileSetName="atelier4_v_proc_ss_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_v_proc_ss_0_0/atelier4_v_proc_ss_0_0.xci">
           <Proxy FileSetName="atelier4_v_proc_ss_0_0"/>
@@ -121,6 +115,13 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../../../s4InfoAtelier4.gen/sources_1/bd/atelier4/hdl/atelier4_wrapper.vhd"/>
           <Attr Name="ImportTime" Val="1646601498"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/background_buffer.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -155,7 +156,7 @@
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1" RelGenDir="$PGENDIR/sim_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sim_1/new/tb_color_converter.vhd">
+      <File Path="$PSRCDIR/sim_1/new/background_buffer_tb.vhd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -191,12 +192,6 @@
     <FileSet Name="atelier4_processing_system7_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/atelier4_processing_system7_0_0" RelGenDir="$PGENDIR/atelier4_processing_system7_0_0">
       <Config>
         <Option Name="TopModule" Val="atelier4_processing_system7_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="atelier4_testPatternGen2_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/atelier4_testPatternGen2_0_0" RelGenDir="$PGENDIR/atelier4_testPatternGen2_0_0">
-      <Config>
-        <Option Name="TopModule" Val="atelier4_testPatternGen2_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -265,16 +260,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="atelier4_processing_system7_0_0_synth_1" Type="Ft3:Synth" SrcSet="atelier4_processing_system7_0_0" Part="xc7z010clg400-1" ConstrsSet="atelier4_processing_system7_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/atelier4_processing_system7_0_0_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PPRDIR/../../Users/Julien/Documents/vivado/s4InfoAtelier4/s4InfoAtelier4.srcs/utils_1/imports/atelier4_processing_system7_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2020"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="atelier4_testPatternGen2_0_0_synth_1" Type="Ft3:Synth" SrcSet="atelier4_testPatternGen2_0_0" Part="xc7z010clg400-1" ConstrsSet="atelier4_testPatternGen2_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/atelier4_testPatternGen2_0_0_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PPRDIR/../../Users/Julien/Documents/vivado/s4InfoAtelier4/s4InfoAtelier4.srcs/utils_1/imports/atelier4_testPatternGen2_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
         <Step Id="synth_design"/>
@@ -360,23 +345,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="atelier4_processing_system7_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="atelier4_processing_system7_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="atelier4_processing_system7_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PPRDIR/../../Users/Julien/Documents/vivado/s4InfoAtelier4/s4InfoAtelier4.srcs/utils_1/imports/atelier4_processing_system7_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2020"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="atelier4_testPatternGen2_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="atelier4_testPatternGen2_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="atelier4_testPatternGen2_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PPRDIR/../../Users/Julien/Documents/vivado/s4InfoAtelier4/s4InfoAtelier4.srcs/utils_1/imports/atelier4_testPatternGen2_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
         <Step Id="init_design"/>

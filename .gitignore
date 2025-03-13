@@ -26,6 +26,7 @@
 *_funcsim.v
 *_funcsim.vhdl
 .project
+*.sim
 
 # [dir]
 *.cache
