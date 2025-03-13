@@ -17,7 +17,6 @@ entity mycolorRegister_v1_0_S00_AXI is
 	port (
 		-- Users to add ports here
         o_imageDataA : out std_logic_vector(31 downto 0);
-        o_imageDataB : out std_logic_vector(31 downto 0);
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -387,7 +386,6 @@ begin
 
 	-- Add user logic here
     o_imageDataA <= slv_reg0;
-    o_imageDataB <= slv_reg1;
 	-- User logic ends
 
 end arch_imp;

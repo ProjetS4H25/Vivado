@@ -12,7 +12,6 @@
     "design_tree": {
       "axi_vdma_0": "",
       "clk_wiz_0": "",
-      "mycolorRegister_0": "",
       "proc_sys_reset_0": "",
       "processing_system7_0": "",
       "rgb2dvi_0": "",
@@ -22,7 +21,8 @@
       "v_proc_ss_0": "",
       "v_tc_0": "",
       "pixelDataToVideoStre_0": "",
-      "testPatternGen2_0": ""
+      "testPatternGen2_0": "",
+      "mycolorRegister_0": ""
     },
     "interface_ports": {
       "hdmi_out": {
@@ -156,12 +156,6 @@
             "value": "4"
           }
         }
-      },
-      "mycolorRegister_0": {
-        "vlnv": "grams:gramslib:mycolorRegister:1.0",
-        "xci_name": "atelier4_mycolorRegister_0_0",
-        "xci_path": "ip\\atelier4_mycolorRegister_0_0\\atelier4_mycolorRegister_0_0.xci",
-        "inst_hier_path": "mycolorRegister_0"
       },
       "proc_sys_reset_0": {
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
@@ -2364,42 +2358,79 @@
             "left": "23",
             "right": "0"
           },
-          "i_colorDataA": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "i_colorDataB": {
+          "i_instruction": {
             "direction": "I",
             "left": "31",
             "right": "0"
           }
         }
+      },
+      "mycolorRegister_0": {
+        "vlnv": "grams:gramslib:mycolorRegister:1.0",
+        "xci_name": "atelier4_mycolorRegister_0_0",
+        "xci_path": "ip\\atelier4_mycolorRegister_0_0\\atelier4_mycolorRegister_0_0.xci",
+        "inst_hier_path": "mycolorRegister_0"
       }
     },
     "interface_nets": {
+      "smartconnect_0_M01_AXI": {
+        "interface_ports": [
+          "smartconnect_0/M01_AXI",
+          "axi_vdma_0/S_AXI_LITE"
+        ]
+      },
+      "smartconnect_0_M03_AXI": {
+        "interface_ports": [
+          "smartconnect_0/M03_AXI",
+          "mycolorRegister_0/S00_AXI"
+        ]
+      },
+      "v_proc_ss_0_m_axis": {
+        "interface_ports": [
+          "v_proc_ss_0/m_axis",
+          "v_axi4s_vid_out_0/video_in"
+        ]
+      },
+      "axi_vdma_0_M_AXI_S2MM": {
+        "interface_ports": [
+          "axi_vdma_0/M_AXI_S2MM",
+          "smartconnect_1/S01_AXI"
+        ]
+      },
+      "smartconnect_0_M00_AXI": {
+        "interface_ports": [
+          "smartconnect_0/M00_AXI",
+          "v_proc_ss_0/s_axi_ctrl"
+        ]
+      },
       "processing_system7_0_FIXED_IO": {
         "interface_ports": [
           "FIXED_IO",
           "processing_system7_0/FIXED_IO"
         ]
       },
-      "processing_system7_0_M_AXI_GP0": {
+      "v_axi4s_vid_out_0_vid_io_out": {
         "interface_ports": [
-          "smartconnect_0/S00_AXI",
-          "processing_system7_0/M_AXI_GP0"
+          "v_axi4s_vid_out_0/vid_io_out",
+          "rgb2dvi_0/RGB"
+        ]
+      },
+      "axi_vdma_0_M_AXIS_MM2S": {
+        "interface_ports": [
+          "axi_vdma_0/M_AXIS_MM2S",
+          "v_proc_ss_0/s_axis"
+        ]
+      },
+      "rgb2dvi_0_TMDS": {
+        "interface_ports": [
+          "hdmi_out",
+          "rgb2dvi_0/TMDS"
         ]
       },
       "smartconnect_0_M02_AXI": {
         "interface_ports": [
           "pixelDataToVideoStre_0/S00_AXI",
           "smartconnect_0/M02_AXI"
-        ]
-      },
-      "v_tc_0_vtiming_out": {
-        "interface_ports": [
-          "v_tc_0/vtiming_out",
-          "v_axi4s_vid_out_0/vtiming_in"
         ]
       },
       "pixelDataToVideoStre_0_M00_AXIS": {
@@ -2414,40 +2445,16 @@
           "processing_system7_0/S_AXI_HP0"
         ]
       },
-      "processing_system7_0_DDR": {
+      "v_tc_0_vtiming_out": {
         "interface_ports": [
-          "DDR",
-          "processing_system7_0/DDR"
+          "v_tc_0/vtiming_out",
+          "v_axi4s_vid_out_0/vtiming_in"
         ]
       },
-      "v_proc_ss_0_m_axis": {
+      "processing_system7_0_M_AXI_GP0": {
         "interface_ports": [
-          "v_proc_ss_0/m_axis",
-          "v_axi4s_vid_out_0/video_in"
-        ]
-      },
-      "v_axi4s_vid_out_0_vid_io_out": {
-        "interface_ports": [
-          "v_axi4s_vid_out_0/vid_io_out",
-          "rgb2dvi_0/RGB"
-        ]
-      },
-      "smartconnect_0_M01_AXI": {
-        "interface_ports": [
-          "smartconnect_0/M01_AXI",
-          "axi_vdma_0/S_AXI_LITE"
-        ]
-      },
-      "smartconnect_0_M00_AXI": {
-        "interface_ports": [
-          "smartconnect_0/M00_AXI",
-          "v_proc_ss_0/s_axi_ctrl"
-        ]
-      },
-      "axi_vdma_0_M_AXI_S2MM": {
-        "interface_ports": [
-          "axi_vdma_0/M_AXI_S2MM",
-          "smartconnect_1/S01_AXI"
+          "smartconnect_0/S00_AXI",
+          "processing_system7_0/M_AXI_GP0"
         ]
       },
       "axi_vdma_0_M_AXI_MM2S": {
@@ -2456,22 +2463,10 @@
           "smartconnect_1/S00_AXI"
         ]
       },
-      "axi_vdma_0_M_AXIS_MM2S": {
+      "processing_system7_0_DDR": {
         "interface_ports": [
-          "axi_vdma_0/M_AXIS_MM2S",
-          "v_proc_ss_0/s_axis"
-        ]
-      },
-      "smartconnect_0_M03_AXI": {
-        "interface_ports": [
-          "smartconnect_0/M03_AXI",
-          "mycolorRegister_0/S00_AXI"
-        ]
-      },
-      "rgb2dvi_0_TMDS": {
-        "interface_ports": [
-          "hdmi_out",
-          "rgb2dvi_0/TMDS"
+          "DDR",
+          "processing_system7_0/DDR"
         ]
       }
     },
@@ -2509,7 +2504,6 @@
           "axi_vdma_0/m_axis_mm2s_aclk",
           "axi_vdma_0/m_axi_s2mm_aclk",
           "axi_vdma_0/s_axis_s2mm_aclk",
-          "mycolorRegister_0/s00_axi_aclk",
           "proc_sys_reset_0/slowest_sync_clk",
           "rgb2dvi_0/PixelClk",
           "smartconnect_0/aclk1",
@@ -2519,7 +2513,8 @@
           "v_proc_ss_0/aclk_ctrl",
           "v_tc_0/clk",
           "pixelDataToVideoStre_0/s00_axi_aclk",
-          "testPatternGen2_0/clk"
+          "testPatternGen2_0/clk",
+          "mycolorRegister_0/s00_axi_aclk"
         ]
       },
       "clk_wiz_0_locked": {
@@ -2535,14 +2530,14 @@
         "ports": [
           "proc_sys_reset_0/peripheral_aresetn",
           "axi_vdma_0/axi_resetn",
-          "mycolorRegister_0/s00_axi_aresetn",
           "rgb2dvi_0/aRst_n",
           "v_axi4s_vid_out_0/aresetn",
           "v_proc_ss_0/aresetn_ctrl",
           "v_tc_0/resetn",
           "pixelDataToVideoStre_0/i_aresetn",
           "pixelDataToVideoStre_0/s00_axi_aresetn",
-          "testPatternGen2_0/rstn"
+          "testPatternGen2_0/rstn",
+          "mycolorRegister_0/s00_axi_aresetn"
         ]
       },
       "Net": {
@@ -2564,13 +2559,7 @@
       "mycolorRegister_0_o_imageDataA": {
         "ports": [
           "mycolorRegister_0/o_imageDataA",
-          "testPatternGen2_0/i_colorDataA"
-        ]
-      },
-      "mycolorRegister_0_o_imageDataB": {
-        "ports": [
-          "mycolorRegister_0/o_imageDataB",
-          "testPatternGen2_0/i_colorDataB"
+          "testPatternGen2_0/i_instruction"
         ]
       },
       "testPatternGen2_0_o_dataValid": {

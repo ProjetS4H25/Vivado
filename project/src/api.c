@@ -11,7 +11,7 @@ void apiMoveViewPort(int offsetX)
 
     int instruction = (0b000001 << 26) | (offsetX << 20);
 
-    Xil_Out32(0x00, instruction);
+    Xil_Out32(0x43C40000, instruction);
 }
 
 // Deplace un acteur par un offset en x et y
@@ -24,7 +24,7 @@ void apiMoveActor(char actorID, int offsetX, int offsetY)
 
     int instruction = (0b000010 << 26) | (actorID << 22) | (offsetX << 16) | (offsetY << 10);
 
-    Xil_Out32(0x00, instruction);
+    Xil_Out32(0x43C40000, instruction);
 }
 
 void apiSetBackgroundBuffer(char tuileID, char posX, char posY ) {//oooo ooii iixx xxxx yyyy yy00 0000 0000
@@ -34,13 +34,13 @@ void apiSetBackgroundBuffer(char tuileID, char posX, char posY ) {//oooo ooii ii
 
     int instruction = (0b000100 << 26) | (tuileID << 22) | (posX << 16) | (posY << 10);
 
-    Xil_Out32(0x00, instruction);
+    Xil_Out32(0x43C40000, instruction);
 }
 
 // Reintialise le jeu dans son etat de depart connu
 void apiReset()
 { // 1111 1100 0000 0000 0000 0000 0000 0000 FC00 0000
-    Xil_Out32(0x00, 0xFC000000);
+    Xil_Out32(0x43C40000, 0xFC000000);
 }
 
 //intialise la position d un acteur dans l affichage
@@ -52,7 +52,7 @@ void apiSetActorPosition(char actorID, int positionX, int positionY) { //oooo oo
 
     int instruction = (0b100001 << 26) | (actorID << 22) | (positionX << 12) | (positionY << 2);
     
-    Xil_Out32(0x00, instruction);
+    Xil_Out32(0x43C40000, instruction);
 }
 
 #endif
