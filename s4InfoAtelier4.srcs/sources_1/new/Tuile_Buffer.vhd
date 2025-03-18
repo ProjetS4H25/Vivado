@@ -13,7 +13,7 @@ use ieee.numeric_std.all;
 
 entity Tuile_Buffer is
   Port ( 
-  -- du système
+  -- du systeme
   Clk: in std_logic ;
 
   -- du controleur

@@ -2378,34 +2378,10 @@
       }
     },
     "interface_nets": {
-      "processing_system7_0_M_AXI_GP0": {
-        "interface_ports": [
-          "smartconnect_0/S00_AXI",
-          "processing_system7_0/M_AXI_GP0"
-        ]
-      },
       "processing_system7_0_FIXED_IO": {
         "interface_ports": [
           "FIXED_IO",
           "processing_system7_0/FIXED_IO"
-        ]
-      },
-      "smartconnect_0_M02_AXI": {
-        "interface_ports": [
-          "pixelDataToVideoStre_0/S00_AXI",
-          "smartconnect_0/M02_AXI"
-        ]
-      },
-      "v_tc_0_vtiming_out": {
-        "interface_ports": [
-          "v_tc_0/vtiming_out",
-          "v_axi4s_vid_out_0/vtiming_in"
-        ]
-      },
-      "smartconnect_1_M00_AXI": {
-        "interface_ports": [
-          "smartconnect_1/M00_AXI",
-          "processing_system7_0/S_AXI_HP0"
         ]
       },
       "processing_system7_0_DDR": {
@@ -2432,10 +2408,28 @@
           "v_axi4s_vid_out_0/video_in"
         ]
       },
-      "smartconnect_0_M01_AXI": {
+      "smartconnect_1_M00_AXI": {
         "interface_ports": [
-          "smartconnect_0/M01_AXI",
-          "axi_vdma_0/S_AXI_LITE"
+          "smartconnect_1/M00_AXI",
+          "processing_system7_0/S_AXI_HP0"
+        ]
+      },
+      "v_tc_0_vtiming_out": {
+        "interface_ports": [
+          "v_tc_0/vtiming_out",
+          "v_axi4s_vid_out_0/vtiming_in"
+        ]
+      },
+      "processing_system7_0_M_AXI_GP0": {
+        "interface_ports": [
+          "smartconnect_0/S00_AXI",
+          "processing_system7_0/M_AXI_GP0"
+        ]
+      },
+      "smartconnect_0_M02_AXI": {
+        "interface_ports": [
+          "pixelDataToVideoStre_0/S00_AXI",
+          "smartconnect_0/M02_AXI"
         ]
       },
       "axi_vdma_0_M_AXI_S2MM": {
@@ -2444,10 +2438,10 @@
           "smartconnect_1/S01_AXI"
         ]
       },
-      "axi_vdma_0_M_AXIS_MM2S": {
+      "smartconnect_0_M00_AXI": {
         "interface_ports": [
-          "axi_vdma_0/M_AXIS_MM2S",
-          "v_proc_ss_0/s_axis"
+          "smartconnect_0/M00_AXI",
+          "v_proc_ss_0/s_axi_ctrl"
         ]
       },
       "smartconnect_0_M03_AXI": {
@@ -2456,16 +2450,22 @@
           "mycolorRegister_0/S00_AXI"
         ]
       },
-      "smartconnect_0_M00_AXI": {
+      "smartconnect_0_M01_AXI": {
         "interface_ports": [
-          "smartconnect_0/M00_AXI",
-          "v_proc_ss_0/s_axi_ctrl"
+          "smartconnect_0/M01_AXI",
+          "axi_vdma_0/S_AXI_LITE"
         ]
       },
       "axi_vdma_0_M_AXI_MM2S": {
         "interface_ports": [
           "axi_vdma_0/M_AXI_MM2S",
           "smartconnect_1/S00_AXI"
+        ]
+      },
+      "axi_vdma_0_M_AXIS_MM2S": {
+        "interface_ports": [
+          "axi_vdma_0/M_AXIS_MM2S",
+          "v_proc_ss_0/s_axis"
         ]
       },
       "rgb2dvi_0_TMDS": {
