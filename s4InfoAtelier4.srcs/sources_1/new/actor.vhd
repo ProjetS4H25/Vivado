@@ -34,7 +34,8 @@ use IEEE.NUMERIC_STD.ALL;
 entity actor is
   Port ( 
          clk       : in std_logic;
-         i_initActor : in std_logic; -- flag pour set la position et les id des tuiles
+         i_initTuile : in std_logic; -- flag pour set les tuileID
+         i_initPos : in std_logic; -- flag pour set la position
          i_tuileId1 : in std_logic_vector (5 downto 0); -- pour set le tuileId
          i_tuileId2 : in std_logic_vector (5 downto 0); -- pour set le tuileId
          i_globalX : in std_logic_vector (9 downto 0); -- postion x global
@@ -61,18 +62,16 @@ begin
 process(clk)
 begin
     if rising_edge(clk) then
-        -- set les tuiles et position initiales de actor
-        if i_initActor = '1' then
-            -- set tuile actor
+        -- set tuile actor
+        if i_initTuile = '1' then
             tuileId1 <= i_tuileId1;
             tuileId2 <= i_tuileId2;
-            -- set position actor
+        -- set position actor
+        elsif i_initPos = '1' then
             nextPosX <= i_globalX;
             nextPosY <= i_globalY;
-        end if;
-        
         -- move actor
-        if i_moveEnable = '1' then
+        elsif i_moveEnable = '1' then
             -- position + offset si offset positif
             if i_moveOffsetX(5) = '0' then
                 nextPosX <= std_logic_vector(unsigned(currentPosX) + unsigned (i_moveOffsetX));

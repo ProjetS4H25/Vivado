@@ -2,10 +2,10 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Wed Mar 19 17:17:10 2025
-# Process ID: 23124
+# Start of session at: Thu Mar 20 13:31:56 2025
+# Process ID: 23396
 # Current directory: C:/Travail/s4InfoAtelier4
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2384 C:\Travail\s4InfoAtelier4\s4InfoAtelier4.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent27108 C:\Travail\s4InfoAtelier4\s4InfoAtelier4.xpr
 # Log file: C:/Travail/s4InfoAtelier4/vivado.log
 # Journal file: C:/Travail/s4InfoAtelier4\vivado.jou
 #-----------------------------------------------------------
@@ -19,5 +19,4 @@ INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Travail/s4InfoAtelier4/s4I
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Travail/s4InfoAtelier4/s4InfoAtelier4.ipdefs/rgb2dvi'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Travail/s4InfoAtelier4/s4InfoAtelier4.ipdefs/tmds_v1_0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
-open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1081.555 ; gain = 0.000
-update_compile_order -fileset sources_1
+open_project: Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1078.656 ; gain = 0.000
