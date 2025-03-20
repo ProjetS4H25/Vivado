@@ -62,6 +62,7 @@ architecture STRUCTURE of bd_0837 is
   component bd_0837_smartconnect_0_0 is
   port (
     aclk : in STD_LOGIC;
+    aclk1 : in STD_LOGIC;
     aresetn : in STD_LOGIC;
     S00_AXI_awaddr : in STD_LOGIC_VECTOR ( 17 downto 0 );
     S00_AXI_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -101,7 +102,6 @@ architecture STRUCTURE of bd_0837 is
     M00_AXI_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     M00_AXI_rvalid : in STD_LOGIC;
     M00_AXI_rready : out STD_LOGIC;
-    aclk1 : in STD_LOGIC;
     M01_AXI_awaddr : out STD_LOGIC_VECTOR ( 11 downto 0 );
     M01_AXI_awprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
     M01_AXI_awvalid : out STD_LOGIC;

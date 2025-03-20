@@ -83,6 +83,7 @@ s_div8_chY <= std_logic_vector(unsigned(i_ch_Y) srl 3);
 s_line_fact_ch <= std_logic_vector(resize(unsigned(s_div8_chY) * 127, 14));
 s_index_ch <= std_logic_vector(unsigned(s_div8_chX) + unsigned(s_div8_chY) + unsigned(s_line_fact_ch));
 
+back_buffer(0)<="000001";
 -- Aller changer la valeur d'une tuile id dans le background.
 -- Il est simplement possible de le faire lorsque le clk est rising et que le contrôleur met i_we_bck à 1
 change_value : process(clk)

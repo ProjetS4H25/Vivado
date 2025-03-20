@@ -41,7 +41,33 @@ type t_tuile is array (0 to 7, 0 to 7) of std_logic_vector(4 downto 0); --  matr
 type t_memory is array (0 to 63) of t_tuile; -- memorise la valeurs des tuiles
 
 -- initier la valeur du tableaux
-signal mem : t_memory := (others => (others => (others => (others => '0'))));
+--signal mem : t_memory := (others => (others => (others => (others => '0'))));
+
+signal mem : t_memory := (
+    -- Tuile 0 (on laisse par défaut, par exemple, à "00000" ou autre)
+    0 => (others => (others => "00000")),  
+    -- Tuile 1 : 8x8 avec code=2 (gris) partout sauf ligne(s) centrale(s) en code=6 (jaune)
+    1 => (
+      -- Ligne 0
+      0 => (others => "00010"),  -- "00010" = 2 en binaire sur 5 bits
+      -- Ligne 1
+      1 => (others => "00010"),
+      -- Ligne 2
+      2 => (others => "00010"),
+      -- Ligne 3 (jaune)
+      3 => (others => "00110"),  -- "00110" = 6 en binaire sur 5 bits
+      -- Ligne 4 (jaune)
+      4 => (others => "00110"),
+      -- Ligne 5
+      5 => (others => "00010"),
+      -- Ligne 6
+      6 => (others => "00010"),
+      -- Ligne 7
+      7 => (others => "00010")
+    ),
+    -- Les autres tuiles (2 à 63) reste zéro 
+    others => (others => (others => "00000"))
+  );
 
 begin
 -- ecriture si We_tuile = 1

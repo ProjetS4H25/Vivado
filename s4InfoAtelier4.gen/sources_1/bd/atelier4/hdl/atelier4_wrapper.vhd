@@ -1,8 +1,8 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
---Date        : Mon Jan 23 16:37:24 2023
---Host        : DESKTOP-STNSRIB running 64-bit major release  (build 9200)
+--Date        : Thu Mar 20 15:02:14 2025
+--Host        : Ordi_de_Mari running 64-bit major release  (build 9200)
 --Command     : generate_target atelier4_wrapper.bd
 --Design      : atelier4_wrapper
 --Purpose     : IP block netlist
@@ -48,10 +48,6 @@ architecture STRUCTURE of atelier4_wrapper is
   port (
     reset_rtl : in STD_LOGIC;
     sys_clk : in STD_LOGIC;
-    hdmi_out_clk_p : out STD_LOGIC;
-    hdmi_out_clk_n : out STD_LOGIC;
-    hdmi_out_data_p : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    hdmi_out_data_n : out STD_LOGIC_VECTOR ( 2 downto 0 );
     FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
     FIXED_IO_ddr_vrn : inout STD_LOGIC;
     FIXED_IO_ddr_vrp : inout STD_LOGIC;
@@ -72,7 +68,11 @@ architecture STRUCTURE of atelier4_wrapper is
     DDR_dm : inout STD_LOGIC_VECTOR ( 3 downto 0 );
     DDR_dq : inout STD_LOGIC_VECTOR ( 31 downto 0 );
     DDR_dqs_n : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    DDR_dqs_p : inout STD_LOGIC_VECTOR ( 3 downto 0 )
+    DDR_dqs_p : inout STD_LOGIC_VECTOR ( 3 downto 0 );
+    hdmi_out_clk_p : out STD_LOGIC;
+    hdmi_out_clk_n : out STD_LOGIC;
+    hdmi_out_data_p : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    hdmi_out_data_n : out STD_LOGIC_VECTOR ( 2 downto 0 )
   );
   end component atelier4;
 begin

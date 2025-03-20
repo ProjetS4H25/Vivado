@@ -111,34 +111,34 @@ component viewport is
 end component;
 ------------------------SIGNALS--------------------------------------------
 signal s_cc: std_logic_vector(4 downto 0);
-signal s_ch_color : STD_LOGIC_VECTOR (23 downto 0);
-signal s_we_color : STD_LOGIC;
+signal s_ch_color : STD_LOGIC_VECTOR (23 downto 0) := X"000000";      ---------***
+signal s_we_color : STD_LOGIC := '0';                           ---------***
 signal s_clk : STD_LOGIC;
-signal s_ch_cc : STD_LOGIC_VECTOR (4 downto 0);  
-signal s_couleur : STD_LOGIC_VECTOR (23 downto 0);
+signal s_ch_cc : STD_LOGIC_VECTOR (4 downto 0) := "00000";          ---------***
+signal s_couleur : STD_LOGIC_VECTOR (23 downto 0);       
 
-signal s_Ch_tuileId:std_logic_vector (5 downto 0); -----
-signal s_Ch_X: std_logic_vector (2 downto 0);
-signal s_Ch_Y: std_logic_vector (2 downto 0);
-signal s_Ch_CC_tuile: std_logic_vector (4 downto 0);   ------*
-signal s_We_tuile: std_logic;   -------*
+signal s_Ch_tuileId:std_logic_vector (5 downto 0) := "000000";       ---------***
+signal s_Ch_X: std_logic_vector (2 downto 0) := "000";            ---------***
+signal s_Ch_Y: std_logic_vector (2 downto 0) := "000";            ---------***
+signal s_Ch_CC_tuile: std_logic_vector (4 downto 0) := "00000";     ---------***
+signal s_We_tuile: std_logic := '0';                            ---------***
 signal s_tuile_id: std_logic_vector (5 downto 0);
 signal s_tuile_X: std_logic_vector (2 downto 0);
 signal s_tuile_Y: std_logic_vector (2 downto 0);
 
-signal s_i_globalX : STD_LOGIC_VECTOR (9 downto 0);
-signal s_i_globalY : STD_LOGIC_VECTOR (9 downto 0);
-signal s_i_ch_X : STD_LOGIC_VECTOR (9 downto 0);
-signal s_i_ch_Y : STD_LOGIC_VECTOR (9 downto 0);
-signal s_i_ch_tuile_id : STD_LOGIC_VECTOR (5 downto 0);
-signal s_i_we_bck : STD_LOGIC;
+signal s_i_globalX : STD_LOGIC_VECTOR (9 downto 0) := "0000000000";
+signal s_i_globalY : STD_LOGIC_VECTOR (9 downto 0) := "0000000000";
+signal s_i_ch_X : STD_LOGIC_VECTOR (9 downto 0) := "0000000000";          ---------***
+signal s_i_ch_Y : STD_LOGIC_VECTOR (9 downto 0) := "0000000000";          ---------***
+signal s_i_ch_tuile_id : STD_LOGIC_VECTOR (5 downto 0) := "000000";   ---------***
+signal s_i_we_bck : STD_LOGIC := '0';                            ---------***                      
 
-signal s_reset: STD_LOGIC;
-signal s_enable: STD_LOGIC;
-signal s_pp_x : STD_LOGIC_VECTOR(9 downto 0);                       
-signal s_pp_y : STD_LOGIC_VECTOR(9 downto 0);                       
-signal s_offset_x : STD_LOGIC_VECTOR (5 downto 0) := (others => '0');
-signal s_offset_y : STD_LOGIC_VECTOR (5 downto 0) := (others => '0');
+signal s_reset: STD_LOGIC;                                ---------***
+signal s_enable: STD_LOGIC;                               ---------***
+signal s_pp_x : STD_LOGIC_VECTOR(9 downto 0);             ----         
+signal s_pp_y : STD_LOGIC_VECTOR(9 downto 0);             ----          
+signal s_offset_x : STD_LOGIC_VECTOR (5 downto 0) := (others => '0');  ----
+signal s_offset_y : STD_LOGIC_VECTOR (5 downto 0) := (others => '0');  ----
 
 begin
 ------------------------INSTANCIATIN DES MODULES-------------------------------
@@ -180,26 +180,21 @@ bac_buf: background_buffer
          o_tuileY => s_tuile_y
 );
 
-view: viewport
-Port map( 
-         clk => clk,
-         reset => s_reset,
-         enable => s_enable,
-         pp_x => s_pp_x,
-         pp_y => s_pp_y,
-         offset_x => s_offset_x,
-         offset_y => s_offset_y,
-         global_x => s_i_globalx,
-         global_y => s_i_globaly
-);
+--view: viewport
+--Port map( 
+--         clk => clk,
+--         reset => s_reset,
+--         enable => s_enable,
+--         pp_x => s_pp_x,
+--         pp_y => s_pp_y,
+--         offset_x => s_offset_x,
+--         offset_y => s_offset_y,
+--         global_x => s_i_globalx,
+--         global_y => s_i_globaly
+--);
 
-process(i_y)
-begin
-   if(i_y(3) = '1') then
-       o_dataPixel <= s_couleur;
-   end if;
-end process;
 
+o_dataPixel <= s_couleur;
 o_dataValid <= '1';
 
 --process(i_y)
