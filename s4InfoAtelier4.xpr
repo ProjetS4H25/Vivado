@@ -107,6 +107,12 @@
         <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_pixelDataToVideoStre_0_3/atelier4_pixelDataToVideoStre_0_3.xci">
           <Proxy FileSetName="atelier4_pixelDataToVideoStre_0_3"/>
         </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_processing_system7_0_0/atelier4_processing_system7_0_0.xci">
+          <Proxy FileSetName="atelier4_processing_system7_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_axi_vdma_0_0/atelier4_axi_vdma_0_0.xci">
+          <Proxy FileSetName="atelier4_axi_vdma_0_0"/>
+        </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/atelier4_wrapper.vhd">
         <FileInfo>

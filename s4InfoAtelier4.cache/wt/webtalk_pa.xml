@@ -48,20 +48,22 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="RunTrigger" value="16" type="JavaHandler"/>
 <property name="SaveFileProxyHandler" value="1" type="JavaHandler"/>
 <property name="SaveRSBDesign" value="7" type="JavaHandler"/>
-<property name="SetTopNode" value="2" type="JavaHandler"/>
+<property name="SetTopNode" value="4" type="JavaHandler"/>
 <property name="ShowProductGuide" value="1" type="JavaHandler"/>
 <property name="ShowView" value="4" type="JavaHandler"/>
-<property name="SimulationRun" value="1" type="JavaHandler"/>
+<property name="SimulationRun" value="2" type="JavaHandler"/>
 <property name="StopTrigger" value="6" type="JavaHandler"/>
 <property name="ToggleViewNavigator" value="1" type="JavaHandler"/>
 <property name="ToolsSettings" value="3" type="JavaHandler"/>
 <property name="ToolsTemplates" value="1" type="JavaHandler"/>
 <property name="UpgradeIP" value="4" type="JavaHandler"/>
+<property name="ViewTaskProjectManager" value="1" type="JavaHandler"/>
 <property name="ZoomFit" value="1" type="JavaHandler"/>
 </item>
 <item name="Gui Handlers">
 <property name="AddIlaProbesPopup_OK" value="4" type="GuiHandlerData"/>
 <property name="AddRepositoryInfoDialog_OK" value="3" type="GuiHandlerData"/>
+<property name="AddSrcWizard_SPECIFY_SIMULATION_SPECIFIC_HDL_FILES" value="1" type="GuiHandlerData"/>
 <property name="ApplyRSBMultiAutomationDialog_CHECKBOX_TREE" value="4" type="GuiHandlerData"/>
 <property name="BaseDialog_APPLY" value="3" type="GuiHandlerData"/>
 <property name="BaseDialog_CANCEL" value="25" type="GuiHandlerData"/>
@@ -88,7 +90,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ExportPlatformWizard_OUTPUT_XSA_NAME" value="3" type="GuiHandlerData"/>
 <property name="FileSetPanel_FILE_SET_PANEL_TREE" value="145" type="GuiHandlerData"/>
 <property name="FileSetView_COLLAPSE_ALL" value="1" type="GuiHandlerData"/>
-<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="67" type="GuiHandlerData"/>
+<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="71" type="GuiHandlerData"/>
 <property name="FlowNavigatorTreePanel_RESET_SYNTHESIS_RUN" value="3" type="GuiHandlerData"/>
 <property name="GenSettingTreeTablePanel_GEN_SETTING_TREE_TABLE" value="4" type="GuiHandlerData"/>
 <property name="GettingStartedView_OPEN_PROJECT" value="1" type="GuiHandlerData"/>
@@ -140,10 +142,11 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PACommandNames_RESET_COMPOSITE_FILE" value="8" type="GuiHandlerData"/>
 <property name="PACommandNames_RUN_BITGEN" value="2" type="GuiHandlerData"/>
 <property name="PACommandNames_SAVE_RSB_DESIGN" value="4" type="GuiHandlerData"/>
-<property name="PACommandNames_SET_AS_TOP" value="2" type="GuiHandlerData"/>
+<property name="PACommandNames_SET_AS_TOP" value="4" type="GuiHandlerData"/>
 <property name="PACommandNames_SHOW_PRODUCT_GUIDE" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_SIMULATION_RESET_BEHAVIORAL" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_SIMULATION_RUN" value="3" type="GuiHandlerData"/>
+<property name="PACommandNames_SIMULATION_RUN_BEHAVIORAL" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_STOP_TRIGGER" value="2" type="GuiHandlerData"/>
 <property name="PACommandNames_TOGGLE_VIEW_NAV" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_ZOOM_FIT" value="1" type="GuiHandlerData"/>
