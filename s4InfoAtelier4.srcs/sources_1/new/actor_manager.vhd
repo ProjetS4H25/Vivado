@@ -33,56 +33,75 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity actor_manager is
     Port ( 
+        clk:        in std_logic;
+        reset:      in std_logic;
+        moveEnable: in std_logic; -- flag pour bouger avec un delta
+        initPositionEn:   in std_logic; -- flag pour set la position/tuile id
+        initTuileEn:      in std_logic; -- flag pour set la position/tuile id
+        initTuile:  in std_logic_vector(11 downto 0); -- les deux tuiles dans un signal
         globalX:    in std_logic_vector(9 downto 0);
         globalY:    in std_logic_vector(9 downto 0);
+        offsetX:    in std_logic_vector(5 downto 0);
+        offsetY:    in std_logic_vector(5 downto 0);
+        positionX:  in std_logic_vector(5 downto 0);
+        positionY:  in std_logic_vector(5 downto 0);
         actor_id:   in std_logic_vector(3 downto 0);
-        ChPosX:     in std_logic_vector(1 downto 0);
-        ChPosY:     in std_logic_vector(1 downto 0);
-        ChTuileId:  in std_logic_vector(5 downto 0);
-        WeTuile:    in std_logic;
-        clk:        in std_logic;
         tuile_id:   out std_logic_vector(5 downto 0);
         tuile_X:    out std_logic_vector(2 downto 0);
         tuile_Y:    out std_logic_vector(2 downto 0)
+   
     );
 end actor_manager;
     
 architecture Behavioral of actor_manager is
-    signal s_pos_x:     std_logic_vector(9 downto 0) := (others => '0');
-    signal s_pos_y:     std_logic_vector(9 downto 0) := (others => '0');
-    signal s_ch_tuile:  std_logic_vector(5 downto 0) := (others => '0');
-begin
-    tuile_id <= s_ch_tuile;
+--Insert the following in the architecture before the begin keyword
+   --Use descriptive names for the states, like st1_reset, st2_search
+   type state_type is (idle, SetPositionX, SetPositionY, ChangePositionX, ChangePositionY, ChangeTuileId);
+   signal state, next_state : state_type;
+   --other outputs
+    
+    signal moveEn1: std_logic;
+    signal moveEn2: std_logic;
+    
+    signal s_offset_x:      std_logic_vector(9 downto 0) := (others => '0');
+    signal s_offset_y:      std_logic_vector(9 downto 0) := (others => '0');
+    signal s_global_x:      std_logic_vector(9 downto 0) := (others => '0');
+    signal s_global_y:      std_logic_vector(9 downto 0) := (others => '0');
+    signal s_tuile_id:      std_logic_vector(9 downto 0) := (others => '0');
 
-update_values: process(clk, ChPosX, ChPosY, ChTuileId)
 begin
-    if rising_edge(clk) then
-        -- Si le LSB de ChPosX est à 1, on veut modifier la position
-        if ChPosX(1) = '1' then
-            -- Le MSB de ChPosX indique si on veut se déplacer en positif 
-            -- ou en négatif ('1' = positif, '0' = négatif)
-            if ChPosX(0) = '1' then
-                s_pos_x <= std_logic_vector(unsigned(s_pos_x) + 1);
-            else
-                s_pos_x <= std_logic_vector(unsigned(s_pos_x) - 1);
-            end if;
-        end if;
-        
-        -- Même chose que pour ChPosX mais pour la position en Y
-        if ChPosY(1) = '1' then
-           if ChPosX(0) = '1' then
-                s_pos_x <= std_logic_vector(unsigned(s_pos_x) + 1);
-            else
-                s_pos_x <= std_logic_vector(unsigned(s_pos_x) - 1);
-            end if;
-        end if;
-        
-        -- Si WeTuile est à 1, on veut modifier l'id de la tuile.
-        if WeTuile = '1' then
-            -- s_ch_tuile prend la nouvelle valeur de ChTuileId
-            s_ch_tuile <= ChTuileId;
-        end if;
-    end if;
-end process;
+
+
+    
+    
+--Insert the following in the architecture after the begin keyword
+   SYNC_PROC: process (clk)
+   begin
+      if (clk'event and clk = '1') then
+         if (reset = '1') then
+            
+         else if (initTuile = '1') then
+         
+         else if (initPosition = '1') then
+            
+         else if (moveEnable = '1') then
+            case actor_id is
+                when "0000" =>
+                    s_a1_en <= '1';
+                    -- set les output de a1
+                    s_a2_en <= '0';
+                    
+                when "0001" =>
+                    s_a1_en <= '0';
+                    s_a2_en <= '1';
+   
+                when others =>
+                    s_a1_en <= '0';
+                    s_a2_en <= '0';
+                    s_tuile_id <= (others => '0');
+             end case;
+         end if;
+      end if;
+   end process;
 
 end Behavioral;
