@@ -3,8 +3,8 @@
 
 void apiMoveViewPort();
 void apiMoveActor(char actorID, int offsetX, int offsetY);
-void apiSetBackgroundBuffer();
+void apiSetBackgroundBuffer(char tuileID, char posX, char posY );
 void apiReset();
-void apiSetActorPosition();
+void apiSetBackgroundBuffer(char tuileID, char posX, char posY );
 
 #endif

@@ -2,6 +2,8 @@
 #define API_C
 
 #include "api.h"
+#include "xil_io.h"
+#include <stdio.h>
 
 // Déplace le viewport selon un certain offset en X
 // opcode 0b000001

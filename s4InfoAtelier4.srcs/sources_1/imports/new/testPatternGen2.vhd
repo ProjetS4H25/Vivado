@@ -51,7 +51,7 @@ begin
 process(i_y)
 begin
    if(i_y(3) = '1') then
-       o_dataPixel <= i_colorDataA(23 downto 0);
+       o_dataPixel <= i_instruction(23 downto 0);
    end if;
 end process;
 
