@@ -62,9 +62,9 @@ end component;
     signal s_tuile_y:       std_logic_vector(2 downto 0) := (others => '0');
     signal s_offset_x:      std_logic_vector(5 downto 0) := (others => '0');
     signal s_offset_y:      std_logic_vector(5 downto 0) := (others => '0');
-    signal s_positionX:     std_logic_vector(5 downto 0);
-    signal s_positionY:     std_logic_vector(5 downto 0);
-    signal s_actor_id:      std_logic_vector(3 downto 0);
+    signal s_positionX:     std_logic_vector(5 downto 0) := (others => '0');
+    signal s_positionY:     std_logic_vector(5 downto 0) := (others => '0');
+    signal s_actor_id:      std_logic_vector(3 downto 0) := (others => '0');
    
 begin
 

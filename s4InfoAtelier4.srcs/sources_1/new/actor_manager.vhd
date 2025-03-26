@@ -42,8 +42,8 @@ entity actor_manager is
         i_globalY:    in std_logic_vector(9 downto 0);
         i_offsetX:    in std_logic_vector(5 downto 0);
         i_offsetY:    in std_logic_vector(5 downto 0);
-        i_positionX:  in std_logic_vector(5 downto 0);
-        i_positionY:  in std_logic_vector(5 downto 0);
+        i_positionX:  in std_logic_vector(9 downto 0);
+        i_positionY:  in std_logic_vector(9 downto 0);
         i_actor_id:   in std_logic_vector(3 downto 0);
         o_tuile_id:   out std_logic_vector(5 downto 0);
         o_tuile_X:    out std_logic_vector(2 downto 0);
@@ -78,17 +78,21 @@ architecture Behavioral of actor_manager is
     signal s_initPos1: std_logic;
     signal s_initPos2: std_logic;
     
-    signal s_tuileX1:   std_logic_vector(2 downto 0);
-    signal s_tuileX2:   std_logic_vector(2 downto 0);
+    signal s_tuileX1:   std_logic_vector(2 downto 0):= (others => '0');
+    signal s_tuileX2:   std_logic_vector(2 downto 0):= (others => '0');
     
-    signal s_tuileY1:   std_logic_vector(2 downto 0);
-    signal s_tuileY2:   std_logic_vector(2 downto 0);
+    signal s_tuileY1:   std_logic_vector(2 downto 0) := (others => '0');
+    signal s_tuileY2:   std_logic_vector(2 downto 0) := (others => '0');
     
-    signal s_tuileId1:  std_logic_vector(5 downto 0);
-    signal s_tuileId2:  std_logic_vector(5 downto 0);
+    signal s_tuileId1:  std_logic_vector(5 downto 0) := (others => '0');
+    signal s_tuileId2:  std_logic_vector(5 downto 0) := (others => '0');
     
     signal s_global_x:      std_logic_vector(9 downto 0) := (others => '0');
     signal s_global_y:      std_logic_vector(9 downto 0) := (others => '0');
+    signal s_global_x1:      std_logic_vector(9 downto 0) := (others => '0');
+    signal s_global_x2:      std_logic_vector(9 downto 0) := (others => '0');
+    signal s_global_y1:      std_logic_vector(9 downto 0) := (others => '0');
+    signal s_global_y2:      std_logic_vector(9 downto 0) := (others => '0');
     
     signal s_initTuile:     std_logic_vector(11 downto 0);
     signal s_tuileId:       std_logic_vector(5 downto 0) := (others => '0');
@@ -109,8 +113,8 @@ begin
         i_moveEnable    => s_moveEn1,
         i_tuileId1      => s_initTuile(11 downto 6),
         i_tuileId2      => s_initTuile(5 downto 0),
-        i_globalX       => s_global_x,
-        i_globalY       => s_global_y,
+        i_globalX       => s_global_x1,
+        i_globalY       => s_global_y1,
         i_moveOffsetX   => s_offset_x,
         i_moveOffsetY   => s_offset_y,
         o_tuileX        => s_tuileX1,
@@ -123,17 +127,22 @@ begin
   s_moveEn1 <= '1' when (i_moveEnable = '1' AND i_actor_id = "0000") else '0';
   s_moveEn2 <= '1' when (i_moveEnable = '1' AND i_actor_id = "0001") else '0';
   
+  
+  
   s_initPos1    <= '1' when (i_initPosition = '1' AND i_actor_id = "0000") else '0';           
   s_initPos2    <= '1' when (i_initPosition = '1' AND i_actor_id = "0001") else '0';
+  
+  s_global_x1 <= i_positionX when (s_initPos1 = '1') else i_globalX;
+  s_global_y1 <= i_positionY when (s_initPos1 = '1') else i_globalY;
 
   s_initTuile1    <= '1' when (i_initTuile = '1' AND i_actor_id = "0000") else '0';
   s_initTuile2    <= '1' when (i_initTuile = '1' AND i_actor_id = "0001") else '0';
   
   s_tuile_x <= s_tuileX1 when (s_tuileId1 /= "000000") else 
-                s_tuileX2 when (s_tuileId2 /= "000000") else "000000";
+                s_tuileX2 when (s_tuileId2 /= "000000") else "000";
                 
   s_tuile_y <= s_tuileY1 when (s_tuileId1 /= "000000") else 
-                s_tuileY2 when (s_tuileId2 /= "000000") else "000000";
+                s_tuileY2 when (s_tuileId2 /= "000000") else "000";
                 
   s_tuileId <= s_tuileId1 when (s_tuileId1 /= "000000") else
                 s_tuileId2 when (s_tuileId2 /= "000000") else "000000";
