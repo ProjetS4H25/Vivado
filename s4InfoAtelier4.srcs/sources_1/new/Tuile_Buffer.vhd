@@ -45,7 +45,7 @@ type t_memory is array (0 to 63) of t_tuile; -- memorise la valeurs des tuiles
 
 signal mem : t_memory := (
     -- Tuile 0 (on laisse par défaut, par exemple, à "00000" ou autre)
-    0 => (others => (others => "00000")),  
+    0 => (others => (others => "00010")),  
     -- Tuile 1 : 8x8 avec code=2 (gris) partout sauf ligne(s) centrale(s) en code=6 (jaune)
     1 => (
       -- Ligne 0
