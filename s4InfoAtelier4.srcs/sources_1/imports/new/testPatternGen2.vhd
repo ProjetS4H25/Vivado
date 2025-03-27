@@ -193,7 +193,14 @@ bac_buf: background_buffer
 --         global_y => s_i_globaly
 --);
 
-o_dataPixel <= s_couleur;
+--o_dataPixel <= s_couleur;
+
+
+process(i_y)
+begin
+  o_dataPixel <= s_couleur;
+end process;
+
 o_dataValid <= '1';
 
 --process(i_y)

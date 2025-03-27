@@ -30,3 +30,4 @@ platform config -updatehw {C:/Travail/s4InfoAtelier4/atelier4_wrapper.xsa}
 platform generate -domains 
 platform generate
 platform generate
+platform generate -domains standalone_ps7_cortexa9_0,zynq_fsbl 

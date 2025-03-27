@@ -7,6 +7,7 @@ void configureVdma()
 	width = 640;
 	height = 360;
 
+
 	/* Start of VDMA Configuration */
     /* Configure the Write interface (S2MM)*/
     // S2MM Control Register

@@ -113,11 +113,8 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_v_axi4s_vid_out_0_0/atelier4_v_axi4s_vid_out_0_0.xci">
-          <Proxy FileSetName="atelier4_v_axi4s_vid_out_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_testPatternGen2_0_0/atelier4_testPatternGen2_0_0.xci">
-          <Proxy FileSetName="atelier4_testPatternGen2_0_0"/>
+        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_processing_system7_0_0/atelier4_processing_system7_0_0.xci">
+          <Proxy FileSetName="atelier4_processing_system7_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_pixelDataToVideoStre_0_3/atelier4_pixelDataToVideoStre_0_3.xci">
           <Proxy FileSetName="atelier4_pixelDataToVideoStre_0_3"/>
@@ -125,23 +122,26 @@
         <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_v_tc_0_0/atelier4_v_tc_0_0.xci">
           <Proxy FileSetName="atelier4_v_tc_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_axi_vdma_0_0/atelier4_axi_vdma_0_0.xci">
-          <Proxy FileSetName="atelier4_axi_vdma_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_clk_wiz_0_0/atelier4_clk_wiz_0_0.xci">
-          <Proxy FileSetName="atelier4_clk_wiz_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_rgb2dvi_0_0/atelier4_rgb2dvi_0_0.xci">
-          <Proxy FileSetName="atelier4_rgb2dvi_0_0"/>
+        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_testPatternGen2_0_0/atelier4_testPatternGen2_0_0.xci">
+          <Proxy FileSetName="atelier4_testPatternGen2_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_mycolorRegister_0_0/atelier4_mycolorRegister_0_0.xci">
           <Proxy FileSetName="atelier4_mycolorRegister_0_0"/>
         </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_axi_vdma_0_0/atelier4_axi_vdma_0_0.xci">
+          <Proxy FileSetName="atelier4_axi_vdma_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_v_axi4s_vid_out_0_0/atelier4_v_axi4s_vid_out_0_0.xci">
+          <Proxy FileSetName="atelier4_v_axi4s_vid_out_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_rgb2dvi_0_0/atelier4_rgb2dvi_0_0.xci">
+          <Proxy FileSetName="atelier4_rgb2dvi_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_clk_wiz_0_0/atelier4_clk_wiz_0_0.xci">
+          <Proxy FileSetName="atelier4_clk_wiz_0_0"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_proc_sys_reset_0_0/atelier4_proc_sys_reset_0_0.xci">
           <Proxy FileSetName="atelier4_proc_sys_reset_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="atelier4.bd" FileRelPathName="ip/atelier4_processing_system7_0_0/atelier4_processing_system7_0_0.xci">
-          <Proxy FileSetName="atelier4_processing_system7_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/atelier4_wrapper.vhd">
