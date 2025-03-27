@@ -29,3 +29,4 @@ platform generate
 platform config -updatehw {C:/Travail/s4InfoAtelier4/atelier4_wrapper.xsa}
 platform generate -domains 
 platform generate
+platform generate
