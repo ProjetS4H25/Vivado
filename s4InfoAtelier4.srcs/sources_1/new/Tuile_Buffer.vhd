@@ -41,7 +41,95 @@ type t_tuile is array (0 to 7, 0 to 7) of std_logic_vector(4 downto 0); --  matr
 type t_memory is array (0 to 63) of t_tuile; -- memorise la valeurs des tuiles
 
 -- initier la valeur du tableaux
-signal mem : t_memory := (others => (others => (others => (others => '0'))));
+signal mem : t_memory := (
+    -- Tuile 0 (on laisse par défaut, par exemple, à "00000" ou autre)
+    0 => (others => (others => "00000")),  
+    
+    -- Tuile 1 : Route, seulement gris du index 1, #434343
+    1 => (
+      -- Ligne 0
+      0 => (others => "00001"),  -- "00010" = 2 en binaire sur 5 bits
+      -- Ligne 1
+      1 => (others => "00001"),
+      -- Ligne 2
+      2 => (others => "00001"),
+      -- Ligne 3 (jaune)
+      3 => (others => "00101"),  -- "00110" = 6 en binaire sur 5 bits
+      -- Ligne 4 (jaune)
+      4 => (others => "00001"),
+      -- Ligne 5
+      5 => (others => "00001"),
+      -- Ligne 6
+      6 => (others => "00001"),
+      -- Ligne 7
+      7 => (others => "00001")
+    ),
+    
+    -- Tuile 2 :trotoir
+    2 => (
+      -- Ligne 0
+      0 => (others => "00101"),  -- gris pale
+      -- Ligne 1
+      1 => (others => "00101"),  -- gris pale
+      -- Ligne 2
+      2 => (others => "00101"),  -- gris pale
+      -- Ligne 3 
+      3 => (others => "00101"),  -- gris pale
+     -- Ligne 4 
+      4 => (others => "00101"),  -- gris pale
+      -- Ligne 5
+      5 => (others => "00101"),  -- gris pale
+      -- Ligne 6
+      6 => (others => "00101"),  -- gris pale
+      -- Ligne 7
+      7 => (others => "00101")  -- gris pale
+    ),
+    
+     -- Tuile 4 : Route avec ligne blanche index 5
+    3 => (
+      -- Ligne 0
+      0 => (others => "00001"),  
+      -- Ligne 1
+      1 => (others => "00001"),  
+      -- Ligne 2
+      2 => (others => "11111"),  -- blanc
+      -- Ligne 3 
+      3 => (others => "11111"),  -- blanc
+      -- Ligne 4 
+      4 => (others => "11111"),  -- blanc
+      -- Ligne 5
+      5 => (others => "11111"),  -- blanc
+      -- Ligne 6
+      6 => (others => "00001"),  
+      -- Ligne 7
+      7 => (others => "00001")   
+    ),
+    
+    -- Tuile 5 : Gazon avec deux vert différent
+    4 => (
+        -- Ligne 0 : un pixel foncé (colonne 0), le reste pâle
+        0 => ("01000", "00111", "00111", "00111", "00111", "00111", "00111", "00111"),
+        -- Ligne 1 : tout pâle
+        1 => (others => "00111"),
+        -- Ligne 2 : un pixel foncé (colonne 2), le reste pâle
+        2 => ("00111", "00111", "01000", "00111", "00111", "00111", "00111", "00111"),
+        -- Ligne 3 : tout pâle
+        3 => (others => "00111"),
+        -- Ligne 4 : un pixel foncé (colonne 4), le reste pâle
+        4 => ("00111", "00111", "00111", "00111", "01000", "00111", "00111", "00111"),
+        -- Ligne 5 : tout pâle
+        5 => (others => "00111"),
+        -- Ligne 6 : un pixel foncé (colonne 6), le reste pâle
+        6 => ("00111", "00111", "00111", "00111", "00111", "00111", "01000", "00111"),
+        -- Ligne 7 : un pixel foncé (colonne 1), le reste pâle
+        7 => ("00111", "01000", "00111", "00111", "00111", "00111", "00111", "00111")
+    ),
+    
+    
+    
+    -- Les autres tuiles (2 à 63) reste zéro 
+    others => (others => (others => "00000"))
+  );
 
 begin
 -- ecriture si We_tuile = 1
