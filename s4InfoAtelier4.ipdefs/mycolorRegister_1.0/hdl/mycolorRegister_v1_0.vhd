@@ -16,8 +16,7 @@ entity mycolorRegister_v1_0 is
 	);
 	port (
 		-- Users to add ports here
-		o_imageDataA : out std_logic_vector(31 downto 0);
-		o_imageDataB : out std_logic_vector(31 downto 0);
+		o_imageDataA : out std_logic_vector(31 downto 0); 
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -58,7 +57,6 @@ architecture arch_imp of mycolorRegister_v1_0 is
 		port (
 		
 		o_imageDataA : out std_logic_vector(31 downto 0);
-		o_imageDataB : out std_logic_vector(31 downto 0);
 		
 		S_AXI_ACLK	: in std_logic;
 		S_AXI_ARESETN	: in std_logic;
@@ -95,7 +93,6 @@ mycolorRegister_v1_0_S00_AXI_inst : mycolorRegister_v1_0_S00_AXI
 	port map (
 	
 	    o_imageDataA => o_imageDataA,
-	    o_imageDataB => o_imageDataB,
 	    
 		S_AXI_ACLK	=> s00_axi_aclk,
 		S_AXI_ARESETN	=> s00_axi_aresetn,
