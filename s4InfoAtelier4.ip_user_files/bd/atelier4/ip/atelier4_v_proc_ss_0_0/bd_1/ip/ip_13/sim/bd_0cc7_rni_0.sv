@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2025 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -130,7 +130,7 @@ output wire [52 : 0] m_sc_payld;
     .C_M_PIPELINE(0),
     .C_M_SEND_PIPELINE(0),
     .C_S_LATENCY(0),
-    .C_NUM_OUTSTANDING(1),
+    .C_NUM_OUTSTANDING(8),
     .C_ACLK_RELATIONSHIP(1),
     .C_ACLKEN_CONVERSION(0)
   ) inst (
