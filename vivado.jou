@@ -11,6 +11,6 @@
 
 #-----------------------------------------------------------
 start_gui
-open_project C:/travail/s4InfoAtelier4/s4InfoAtelier4.xpr
+open_project C:/Travail/s4InfoAtelier4/s4InfoAtelier4.xpr
 
 update_compile_order -fileset sources_1
