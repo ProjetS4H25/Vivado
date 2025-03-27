@@ -38,14 +38,14 @@ architecture Behavioral of Tuile_Buffer is
 -- Tableau de tuile
 -- chaque element de la matrice fait 5 bits
 type t_tuile is array (0 to 7, 0 to 7) of std_logic_vector(4 downto 0); --  matrice 8Ã—8 dâ€™une tuile
-type t_memory is array (0 to 63) of t_tuile; -- memorise la valeurs des tuiles
+type t_memory is array (0 to 15) of t_tuile; -- memorise la valeurs des tuiles
 
 -- initier la valeur du tableaux
 --signal mem : t_memory := (others => (others => (others => (others => '0'))));
 
 signal mem : t_memory := (
     -- Tuile 0 (on laisse par défaut, par exemple, à "00000" ou autre)
-    0 => (others => (others => "00010")),  
+    0 => (others => (others => "00100")),  
     -- Tuile 1 : 8x8 avec code=2 (gris) partout sauf ligne(s) centrale(s) en code=6 (jaune)
     1 => (
       -- Ligne 0

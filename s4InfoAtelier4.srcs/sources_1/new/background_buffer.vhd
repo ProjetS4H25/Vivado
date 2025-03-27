@@ -67,7 +67,7 @@ signal next_tuile  : std_logic_vector (5 downto 0) := (others => '0');
 signal next_index : std_logic_vector (13 downto 0) := (others => '0');
 
 type tuileId is array (natural range <>) of std_logic_vector (5 downto 0);
-signal back_buffer : tuileId(0 to 16383) := (others => (others => '0'));
+signal back_buffer : tuileId(0 to 1000) := (others => (others => '0')); --16383
 
 begin
 

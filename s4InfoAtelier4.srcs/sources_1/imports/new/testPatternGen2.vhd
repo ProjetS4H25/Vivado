@@ -193,7 +193,6 @@ bac_buf: background_buffer
 --         global_y => s_i_globaly
 --);
 
-
 o_dataPixel <= s_couleur;
 o_dataValid <= '1';
 

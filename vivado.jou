@@ -2,32 +2,28 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Tue Mar 25 20:01:45 2025
-# Process ID: 26960
+# Start of session at: Wed Mar 26 20:07:03 2025
+# Process ID: 17324
 # Current directory: C:/Travail/S4InfoAtelier4
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent30328 C:\Travail\S4InfoAtelier4\s4InfoAtelier4.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20136 C:\Travail\S4InfoAtelier4\s4InfoAtelier4.xpr
 # Log file: C:/Travail/S4InfoAtelier4/vivado.log
 # Journal file: C:/Travail/S4InfoAtelier4\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Travail/S4InfoAtelier4/s4InfoAtelier4.xpr
 update_compile_order -fileset sources_1
-set_property SOURCE_SET sources_1 [get_filesets sim_1]
-close [ open C:/Travail/S4InfoAtelier4/s4InfoAtelier4.srcs/sim_1/new/testPatternGen_tb.vhd w ]
-add_files -fileset sim_1 C:/Travail/S4InfoAtelier4/s4InfoAtelier4.srcs/sim_1/new/testPatternGen_tb.vhd
-update_compile_order -fileset sim_1
-# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
-set_property source_mgmt_mode None [current_project]
-set_property top testPatternGen_tb [get_filesets sim_1]
-set_property top_lib xil_defaultlib [get_filesets sim_1]
-# Re-enabling previously disabled source management mode.
-set_property source_mgmt_mode All [current_project]
-update_compile_order -fileset sim_1
-launch_simulation
-source testPatternGen_tb.tcl
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-close_sim
+update_module_reference atelier4_testPatternGen2_0_0
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Travail/S4InfoAtelier4/s4InfoAtelier4.runs/impl_1/atelier4_wrapper.bit} [get_hw_devices xc7z010_1]
+current_hw_device [get_hw_devices xc7z010_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z010_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {C:/Travail/S4InfoAtelier4/s4InfoAtelier4.runs/impl_1/atelier4_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
