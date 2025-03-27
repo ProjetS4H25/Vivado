@@ -94,7 +94,7 @@ architecture Behavioral of actor_manager is
     signal s_global_y1:      std_logic_vector(9 downto 0) := (others => '0');
     signal s_global_y2:      std_logic_vector(9 downto 0) := (others => '0');
     
-    signal s_initTuile:     std_logic_vector(11 downto 0);
+    signal s_initTuile:     std_logic_vector(11 downto 0):= (others => '0');
     signal s_tuileId:       std_logic_vector(5 downto 0) := (others => '0');
     signal s_tuile_X:       std_logic_vector(2 downto 0) := (others => '0');
     signal s_tuile_y:       std_logic_vector(2 downto 0) := (others => '0');
@@ -111,23 +111,21 @@ begin
         i_initTuile     => s_initTuile1,
         i_initPos       => s_initPos1,
         i_moveEnable    => s_moveEn1,
-        i_tuileId1      => s_initTuile(11 downto 6),
-        i_tuileId2      => s_initTuile(5 downto 0),
+        i_tuileId1      => i_tuileId(11 downto 6),
+        i_tuileId2      => i_tuileId(5 downto 0),
         i_globalX       => s_global_x1,
         i_globalY       => s_global_y1,
         i_moveOffsetX   => s_offset_x,
         i_moveOffsetY   => s_offset_y,
         o_tuileX        => s_tuileX1,
         o_tuileY        => s_tuileY1,
-        o_tuileId       => s_tuileId
+        o_tuileId       => s_tuileId1
         
     );
     
     
   s_moveEn1 <= '1' when (i_moveEnable = '1' AND i_actor_id = "0000") else '0';
   s_moveEn2 <= '1' when (i_moveEnable = '1' AND i_actor_id = "0001") else '0';
-  
-  
   
   s_initPos1    <= '1' when (i_initPosition = '1' AND i_actor_id = "0000") else '0';           
   s_initPos2    <= '1' when (i_initPosition = '1' AND i_actor_id = "0001") else '0';
@@ -144,7 +142,11 @@ begin
   s_tuile_y <= s_tuileY1 when (s_tuileId1 /= "000000") else 
                 s_tuileY2 when (s_tuileId2 /= "000000") else "000";
                 
+                
   s_tuileId <= s_tuileId1 when (s_tuileId1 /= "000000") else
                 s_tuileId2 when (s_tuileId2 /= "000000") else "000000";
     
+  o_tuile_id <= s_tuileId;
+  o_tuile_x <= s_tuile_x;
+  o_tuile_y <= s_tuile_y;
 end Behavioral;

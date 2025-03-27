@@ -612,3 +612,35 @@ con
 16:16:39 INFO  : Platform repository initialization has completed.
 16:16:40 INFO  : Successfully done query RDI_DATADIR 
 16:16:40 INFO  : Registering command handlers for Vitis TCF services
+13:32:17 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Travail\s4InfoAtelier4\temp_xsdb_launch_script.tcl
+13:32:23 INFO  : Registering command handlers for Vitis TCF services
+13:32:23 INFO  : XSCT server has started successfully.
+13:32:24 INFO  : Successfully done setting XSCT server connection channel  
+13:32:24 INFO  : plnx-install-location is set to ''
+13:32:24 INFO  : Successfully done query RDI_DATADIR 
+13:32:24 INFO  : Successfully done setting workspace for the tool. 
+13:32:28 INFO  : Platform repository initialization has completed.
+13:34:05 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Travail\s4InfoAtelier4\temp_xsdb_launch_script.tcl
+13:34:09 INFO  : XSCT server has started successfully.
+13:34:09 INFO  : plnx-install-location is set to ''
+13:34:09 INFO  : Successfully done setting XSCT server connection channel  
+13:34:09 INFO  : Registering command handlers for Vitis TCF services
+13:34:10 INFO  : Successfully done setting workspace for the tool. 
+13:34:10 INFO  : Successfully done query RDI_DATADIR 
+13:34:14 INFO  : Platform repository initialization has completed.
+13:36:46 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Travail\s4InfoAtelier4\temp_xsdb_launch_script.tcl
+13:36:49 INFO  : Registering command handlers for Vitis TCF services
+13:36:49 INFO  : XSCT server has started successfully.
+13:36:49 INFO  : plnx-install-location is set to ''
+13:36:49 INFO  : Successfully done setting XSCT server connection channel  
+13:36:49 INFO  : Successfully done query RDI_DATADIR 
+13:36:49 INFO  : Successfully done setting workspace for the tool. 
+13:36:51 INFO  : Platform repository initialization has completed.
+13:37:55 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Travail\s4InfoAtelier4\temp_xsdb_launch_script.tcl
+13:37:59 INFO  : Registering command handlers for Vitis TCF services
+13:37:59 INFO  : XSCT server has started successfully.
+13:38:00 INFO  : Successfully done setting XSCT server connection channel  
+13:38:00 INFO  : plnx-install-location is set to ''
+13:38:00 INFO  : Successfully done query RDI_DATADIR 
+13:38:00 INFO  : Successfully done setting workspace for the tool. 
+13:38:03 INFO  : Platform repository initialization has completed.

@@ -28,8 +28,8 @@ component actor_manager
         i_globalY:    in std_logic_vector(9 downto 0);
         i_offsetX:    in std_logic_vector(5 downto 0);
         i_offsetY:    in std_logic_vector(5 downto 0);
-        i_positionX:  in std_logic_vector(5 downto 0);
-        i_positionY:  in std_logic_vector(5 downto 0);
+        i_positionX:  in std_logic_vector(9 downto 0);
+        i_positionY:  in std_logic_vector(9 downto 0);
         i_actor_id:   in std_logic_vector(3 downto 0);
         o_tuile_id:   out std_logic_vector(5 downto 0);
         o_tuile_X:    out std_logic_vector(2 downto 0);
@@ -54,16 +54,16 @@ end component;
    constant c_delai_commandes   : time :=  10 us;  -- delai entre commandes du bouton
    CONSTANT PERIOD    : time := 10 ns;
    
-    signal s_moveEnable:    std_logic;
-    signal s_initPosition:  std_logic;
-    signal s_initTuile:     std_logic;
-    signal s_tuileId:       std_logic_vector(11 downto 0) := (others => '0');
+    signal s_moveEnable:    std_logic := '0';
+    signal s_initPosition:  std_logic := '0';
+    signal s_initTuile:     std_logic := '0';
+    signal s_tuileId:       std_logic_vector(11 downto 0):= (others => '0');
     signal s_tuile_X:       std_logic_vector(2 downto 0) := (others => '0');
     signal s_tuile_y:       std_logic_vector(2 downto 0) := (others => '0');
     signal s_offset_x:      std_logic_vector(5 downto 0) := (others => '0');
     signal s_offset_y:      std_logic_vector(5 downto 0) := (others => '0');
-    signal s_positionX:     std_logic_vector(5 downto 0) := (others => '0');
-    signal s_positionY:     std_logic_vector(5 downto 0) := (others => '0');
+    signal s_positionX:     std_logic_vector(9 downto 0) := (others => '0');
+    signal s_positionY:     std_logic_vector(9 downto 0) := (others => '0');
     signal s_actor_id:      std_logic_vector(3 downto 0) := (others => '0');
    
 begin
@@ -107,11 +107,42 @@ begin
 
 tb : PROCESS
    BEGIN      
-      wait for PERIOD; s_glbX <="0000000000"; s_glbY <="0000000000";
-      wait for PERIOD; wait for PERIOD; 
+
       
-      wait for PERIOD; s_glbX <="0000010000"; s_glbX <="0000010000"; s_positionX <= "0000010000"; s_positionY <= "0000010000"; s_initPosition <= '1';
-      wait for PERIOD; wait for PERIOD; 
+      s_glbX <="0000010000"; 
+      s_glbY <="0000010000";
+      wait for PERIOD; 
+      
+      s_initTuile  <= '1';
+      s_actor_id    <= "0000"; 
+      s_tuileId     <= "101010010101"; 
+      wait for PERIOD; 
+      s_initTuile  <= '0';
+      
+      s_positionX <= "0000010000"; 
+      s_positionY <= "0000010000"; 
+      s_initPosition <= '1';
+      wait for PERIOD; 
+      s_initPosition <= '0';
+      
+      s_glbX <="0000010000"; 
+      s_glbX <="0000010000"; 
+      wait for PERIOD; 
+      
+      s_glbX <="0000010001"; 
+      s_glbX <="0000010000"; 
+      wait for PERIOD; 
+      
+      s_glbX <="0000010001"; 
+      s_glbX <="0000010000"; 
+      wait for PERIOD; 
+      
+      s_glbX <="0000010010"; 
+      s_glbX <="0000010001"; 
+      wait for PERIOD; 
+            
+      s_initPosition <= '0';
+      
       
       WAIT; -- will wait forever
  end process;
