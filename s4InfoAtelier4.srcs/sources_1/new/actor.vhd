@@ -10,8 +10,8 @@ entity actor is
          i_initPos     : in std_logic; -- flag to set the position
          i_tuileId1    : in std_logic_vector (5 downto 0); -- tile id 1
          i_tuileId2    : in std_logic_vector (5 downto 0); -- tile id 2
-         i_globalX     : in std_logic_vector (9 downto 0); -- global x position
-         i_globalY     : in std_logic_vector (9 downto 0); -- global y position
+         i_globalX     : in std_logic_vector (8 downto 0); -- global x position
+         i_globalY     : in std_logic_vector (8 downto 0); -- global y position
          i_moveOffsetX : in std_logic_vector (5 downto 0); -- x offset (sign-magnitude)
          i_moveOffsetY : in std_logic_vector (5 downto 0); -- y offset (sign-magnitude)
          i_moveEnable  : in std_logic; -- enable movement
@@ -26,14 +26,14 @@ architecture Behavioral of actor is
     -- registre d'etats
     signal tuileId1_reg : std_logic_vector (5 downto 0) := (others => '0');
     signal tuileId2_reg : std_logic_vector (5 downto 0) := (others => '0');
-    signal currentPosX_reg : std_logic_vector (9 downto 0) := (others => '0');
-    signal currentPosY_reg : std_logic_vector (9 downto 0) := (others => '0');
+    signal currentPosX_reg : std_logic_vector (8 downto 0) := (others => '0');
+    signal currentPosY_reg : std_logic_vector (8 downto 0) := (others => '0');
     
     -- signaux intermediaire
-    signal s_newPosX  : std_logic_vector (9 downto 0);
-    signal s_newPosY  : std_logic_vector (9 downto 0);
-    signal s_diffX    : std_logic_vector (9 downto 0);
-    signal s_diffY    : std_logic_vector (9 downto 0);
+    signal s_newPosX  : std_logic_vector (8 downto 0);
+    signal s_newPosY  : std_logic_vector (8 downto 0);
+    signal s_diffX    : std_logic_vector (8 downto 0);
+    signal s_diffY    : std_logic_vector (8 downto 0);
 
 begin
     process(clk)
@@ -64,27 +64,26 @@ begin
             s_newPosY <= i_globalY;
         elsif i_moveEnable = '1' then -- add le offset a la position actuel
             if i_moveOffsetX(5) = '0' then
-                s_newPosX <= std_logic_vector(unsigned(currentPosX_reg) + resize(unsigned(i_moveOffsetX(4 downto 0)), 10));
+                s_newPosX <= std_logic_vector(unsigned(currentPosX_reg) + resize(unsigned(i_moveOffsetX(4 downto 0)), 9));
             else
-                s_newPosX <= std_logic_vector(unsigned(currentPosX_reg) - resize(unsigned(i_moveOffsetX(4 downto 0)), 10));
+                s_newPosX <= std_logic_vector(unsigned(currentPosX_reg) - resize(unsigned(i_moveOffsetX(4 downto 0)), 9));
             end if;
             if i_moveOffsetY(5) = '0' then
-                s_newPosY <= std_logic_vector(unsigned(currentPosY_reg) + resize(unsigned(i_moveOffsetY(4 downto 0)), 10));
+                s_newPosY <= std_logic_vector(unsigned(currentPosY_reg) + resize(unsigned(i_moveOffsetY(4 downto 0)), 9));
             else
-                s_newPosY <= std_logic_vector(unsigned(currentPosY_reg) - resize(unsigned(i_moveOffsetY(4 downto 0)), 10));
+                s_newPosY <= std_logic_vector(unsigned(currentPosY_reg) - resize(unsigned(i_moveOffsetY(4 downto 0)), 9));
             end if;
         else -- position ne change pas
             s_newPosX <= currentPosX_reg;
             s_newPosY <= currentPosY_reg;
         end if;
     end process;
-
-    s_diffX <= std_logic_vector(unsigned(i_globalX) - unsigned(s_newPosX));
-    s_diffY <= std_logic_vector(unsigned(i_globalY) - unsigned(s_newPosY));
     
     -- output
     process(i_globalX, i_globalY, s_newPosX, s_newPosY, s_diffX, s_diffY, tuileId1_reg, tuileId2_reg)
     begin
+    s_diffX <= std_logic_vector(unsigned(i_globalX) - unsigned(currentPosX_reg));
+    s_diffY <= std_logic_vector(unsigned(i_globalY) - unsigned(currentPosY_reg));
         -- verifie si le pixel au coordonee i_globalX et i_globalY est dans les tuiles de l'acteur sinon output 0
         if (unsigned(i_globalY) >= unsigned(s_newPosY)) and (unsigned(i_globalY) < unsigned(s_newPosY) + 8) then
             if (unsigned(i_globalX) >= unsigned(s_newPosX)) and (unsigned(i_globalX) < unsigned(s_newPosX) + 8) then
