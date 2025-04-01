@@ -33,6 +33,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity actor_manager is
     Port ( 
+        reset:      in std_logic;
         clk:        in std_logic;
         i_moveEnable: in std_logic; -- flag pour bouger avec un delta
         i_initPosition:   in std_logic; -- flag pour set la position/tuile id
@@ -55,6 +56,7 @@ end actor_manager;
 architecture Behavioral of actor_manager is
     component actor is
       Port ( 
+             reset     : in std_logic;
              clk       : in std_logic;
              i_initTuile : in std_logic; -- flag pour set les tuileID
              i_initPos : in std_logic; -- flag pour set la position
@@ -107,6 +109,7 @@ begin
 
     actor1: component actor
     Port map(
+        reset           => reset,
         clk             => clk,
         i_initTuile     => s_initTuile1,
         i_initPos       => s_initPos1,

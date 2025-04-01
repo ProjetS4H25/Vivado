@@ -19,11 +19,12 @@ architecture Behavioral of tb_actor_manager is
 
 component actor_manager
     PORT (
+        reset:      in std_logic;
         clk:        in std_logic;
         i_moveEnable: in std_logic; -- flag pour bouger avec un delta
         i_initPosition:   in std_logic; -- flag pour set la position/tuile id
         i_initTuile:      in std_logic; -- flag pour set la position/tuile id
-        i_tuileId:  in std_logic_vector(11 downto 0); -- les deux tuiles dans un signal
+        i_tuileId:    in std_logic_vector(11 downto 0); -- les deux tuiles dans un signal
         i_globalX:    in std_logic_vector(9 downto 0);
         i_globalY:    in std_logic_vector(9 downto 0);
         i_offsetX:    in std_logic_vector(5 downto 0);
@@ -74,7 +75,8 @@ begin
      
  UUT: actor_manager
  Port map
-    (       
+    (     
+      reset             => d_reset,  
       clk               => d_clk_p,
       i_globalX         => s_glbX,
       i_globalY         => s_glbY,
@@ -106,45 +108,63 @@ begin
    end process;  
 
 tb : PROCESS
+        variable x : integer := 0;
+        variable y : integer := 0;
    BEGIN      
 
+        s_glbX <="0000000000"; 
+        s_glbY <="0000000000";
+        wait for PERIOD; 
       
-      s_glbX <="0000010000"; 
-      s_glbY <="0000010000";
-      wait for PERIOD; 
+        s_initTuile  <= '1';
+        s_actor_id    <= "0000"; 
+        s_tuileId     <= "101010010101"; 
+        wait for PERIOD; 
+        s_initTuile  <= '0';
       
-      s_initTuile  <= '1';
-      s_actor_id    <= "0000"; 
-      s_tuileId     <= "101010010101"; 
-      wait for PERIOD; 
-      s_initTuile  <= '0';
-      
-      s_positionX <= "0000010000"; 
-      s_positionY <= "0000010000"; 
-      s_initPosition <= '1';
-      wait for PERIOD; 
-      s_initPosition <= '0';
-      
-      s_glbX <="0000010000"; 
-      s_glbX <="0000010000"; 
-      wait for PERIOD; 
-      
-      s_glbX <="0000010001"; 
-      s_glbX <="0000010000"; 
-      wait for PERIOD; 
-      
-      s_glbX <="0000010001"; 
-      s_glbX <="0000010000"; 
-      wait for PERIOD; 
-      
-      s_glbX <="0000010010"; 
-      s_glbX <="0000010001"; 
-      wait for PERIOD; 
-            
-      s_initPosition <= '0';
-      
-      
-      WAIT; -- will wait forever
+        s_positionX <= "0000000000"; 
+        s_positionY <= "0000000000"; 
+        s_initPosition <= '1';
+        wait for PERIOD; 
+        s_initPosition <= '0';
+
+--        for y in 0 to 8 loop
+--            s_glbY <= std_logic_vector(to_unsigned(y, 10));
+--            wait for PERIOD;
+--        end loop;
+        
+--        s_glbY <= (others => '0');
+--        wait for PERIOD;
+        
+--        for x in 0 to 16 loop
+--            s_glbX <= std_logic_vector(to_unsigned(x, 10));
+--            wait for PERIOD;
+--        end loop;
+--        wait for PERIOD;
+        
+        s_glbY <= std_logic_vector(to_unsigned(4, 10));
+        s_glbx <= std_logic_vector(to_unsigned(8, 10));
+        
+        s_moveEnable <= '1';
+        for x in 0 to 16 loop
+            s_offset_x <= "000001";
+            wait for PERIOD;
+        end loop;
+        
+        for y in 0 to 8 loop
+            s_offset_y <= "000001";
+            wait for PERIOD;
+        end loop;
+        
+        s_moveEnable <= '0';
+
+        
+        wait for PERIOD;
+        wait for PERIOD;
+        wait for PERIOD;
+        wait for PERIOD;
+        wait for PERIOD;
+        
  end process;
  
 end Behavioral;

@@ -12,11 +12,11 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="192701fs"></ZoomEndTime>
-      <Cursor1Time time="26000fs"></Cursor1Time>
+      <ZoomEndTime time="630001fs"></ZoomEndTime>
+      <Cursor1Time time="0fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="256"></NameColumnWidth>
+      <NameColumnWidth column_width="240"></NameColumnWidth>
       <ValueColumnWidth column_width="116"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="3" />
@@ -24,14 +24,6 @@
       <obj_property name="label">UUT</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/tb_actor_manager/UUT/s_tuileX1" type="array">
-         <obj_property name="ElementShortName">s_tuileX1[2:0]</obj_property>
-         <obj_property name="ObjectShortName">s_tuileX1[2:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_actor_manager/UUT/s_tuileY1" type="array">
-         <obj_property name="ElementShortName">s_tuileY1[2:0]</obj_property>
-         <obj_property name="ObjectShortName">s_tuileY1[2:0]</obj_property>
-      </wvobject>
       <wvobject fp_name="/tb_actor_manager/UUT/o_tuile_Y" type="array">
          <obj_property name="ElementShortName">o_tuile_Y[2:0]</obj_property>
          <obj_property name="ObjectShortName">o_tuile_Y[2:0]</obj_property>
@@ -43,6 +35,7 @@
       <wvobject fp_name="/tb_actor_manager/UUT/o_tuile_id" type="array">
          <obj_property name="ElementShortName">o_tuile_id[5:0]</obj_property>
          <obj_property name="ObjectShortName">o_tuile_id[5:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_actor_manager/UUT/i_actor_id" type="array">
          <obj_property name="ElementShortName">i_actor_id[3:0]</obj_property>
@@ -64,6 +57,14 @@
          <obj_property name="ElementShortName">i_tuileId[11:0]</obj_property>
          <obj_property name="ObjectShortName">i_tuileId[11:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_actor_manager/UUT/i_offsetX" type="array">
+         <obj_property name="ElementShortName">i_offsetX[5:0]</obj_property>
+         <obj_property name="ObjectShortName">i_offsetX[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_actor_manager/UUT/i_offsetY" type="array">
+         <obj_property name="ElementShortName">i_offsetY[5:0]</obj_property>
+         <obj_property name="ObjectShortName">i_offsetY[5:0]</obj_property>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group45" type="group">
@@ -172,9 +173,14 @@
          <obj_property name="ElementShortName">i_initPos</obj_property>
          <obj_property name="ObjectShortName">i_initPos</obj_property>
       </wvobject>
+      <wvobject fp_name="/tb_actor_manager/UUT/i_moveEnable" type="logic">
+         <obj_property name="ElementShortName">i_moveEnable</obj_property>
+         <obj_property name="ObjectShortName">i_moveEnable</obj_property>
+      </wvobject>
       <wvobject fp_name="/tb_actor_manager/UUT/actor1/o_tuileX" type="array">
          <obj_property name="ElementShortName">o_tuileX[2:0]</obj_property>
          <obj_property name="ObjectShortName">o_tuileX[2:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_actor_manager/UUT/actor1/o_tuileY" type="array">
          <obj_property name="ElementShortName">o_tuileY[2:0]</obj_property>
@@ -184,6 +190,14 @@
          <obj_property name="ElementShortName">o_tuileId[5:0]</obj_property>
          <obj_property name="ObjectShortName">o_tuileId[5:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_actor_manager/UUT/i_positionX" type="array">
+         <obj_property name="ElementShortName">i_positionX[9:0]</obj_property>
+         <obj_property name="ObjectShortName">i_positionX[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_actor_manager/UUT/i_positionY" type="array">
+         <obj_property name="ElementShortName">i_positionY[9:0]</obj_property>
+         <obj_property name="ObjectShortName">i_positionY[9:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_actor_manager/UUT/actor1/i_tuileId1" type="array">
          <obj_property name="ElementShortName">i_tuileId1[5:0]</obj_property>
@@ -195,31 +209,15 @@
          <obj_property name="ObjectShortName">i_tuileId2[5:0]</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_actor_manager/UUT/actor1/currentPosX" type="array">
-         <obj_property name="ElementShortName">currentPosX[9:0]</obj_property>
-         <obj_property name="ObjectShortName">currentPosX[9:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_actor_manager/UUT/actor1/currentPosY" type="array">
-         <obj_property name="ElementShortName">currentPosY[9:0]</obj_property>
-         <obj_property name="ObjectShortName">currentPosY[9:0]</obj_property>
-      </wvobject>
       <wvobject fp_name="/tb_actor_manager/UUT/actor1/i_globalX" type="array">
          <obj_property name="ElementShortName">i_globalX[9:0]</obj_property>
          <obj_property name="ObjectShortName">i_globalX[9:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_actor_manager/UUT/actor1/i_globalY" type="array">
          <obj_property name="ElementShortName">i_globalY[9:0]</obj_property>
          <obj_property name="ObjectShortName">i_globalY[9:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_actor_manager/UUT/actor1/nextPosX" type="array">
-         <obj_property name="ElementShortName">nextPosX[9:0]</obj_property>
-         <obj_property name="ObjectShortName">nextPosX[9:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_actor_manager/UUT/actor1/nextPosY" type="array">
-         <obj_property name="ElementShortName">nextPosY[9:0]</obj_property>
-         <obj_property name="ObjectShortName">nextPosY[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>
