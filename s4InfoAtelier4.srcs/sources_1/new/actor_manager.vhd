@@ -148,7 +148,9 @@ begin
                 
   s_tuileId <= s_tuileId1 when (s_tuileId1 /= "000000") else
                 s_tuileId2 when (s_tuileId2 /= "000000") else "000000";
-    
+  
+  s_offset_x <= i_offsetX;
+  s_offset_y <= i_offsetY;
   o_tuile_id <= s_tuileId;
   o_tuile_x <= s_tuile_x;
   o_tuile_y <= s_tuile_y;

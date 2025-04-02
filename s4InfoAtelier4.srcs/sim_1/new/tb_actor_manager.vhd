@@ -112,53 +112,85 @@ tb : PROCESS
         variable y : integer := 0;
    BEGIN      
 
+        -- Set la position initiale du viewport
         s_glbX <="0000000000"; 
         s_glbY <="0000000000";
         wait for PERIOD; 
       
+        -- initialiser l'acteur
         s_initTuile  <= '1';
         s_actor_id    <= "0000"; 
-        s_tuileId     <= "101010010101"; 
+        s_tuileId     <= "101010010101"; -- deux tuiles dans ce signal
         wait for PERIOD; 
         s_initTuile  <= '0';
       
-        s_positionX <= "0000000000"; 
-        s_positionY <= "0000000000"; 
-        s_initPosition <= '1';
-        wait for PERIOD; 
-        s_initPosition <= '0';
-
---        for y in 0 to 8 loop
---            s_glbY <= std_logic_vector(to_unsigned(y, 10));
---            wait for PERIOD;
---        end loop;
-        
---        s_glbY <= (others => '0');
---        wait for PERIOD;
-        
---        for x in 0 to 16 loop
---            s_glbX <= std_logic_vector(to_unsigned(x, 10));
---            wait for PERIOD;
---        end loop;
---        wait for PERIOD;
-        
-        s_glbY <= std_logic_vector(to_unsigned(4, 10));
-        s_glbx <= std_logic_vector(to_unsigned(8, 10));
-        
-        s_moveEnable <= '1';
-        for x in 0 to 16 loop
-            s_offset_x <= "000001";
+        -- déplacer le viewport en y de 0 à 8 en incrément de 1
+        for y in 0 to 8 loop
+            s_glbY <= std_logic_vector(to_unsigned(y, 10));
             wait for PERIOD;
         end loop;
         
-        for y in 0 to 8 loop
+        -- remettre le viewport à y=0
+        s_glbY <= (others => '0');
+        wait for PERIOD;
+        
+        -- déplacer le viewport en x de 0 à 16 en incrément de 1
+        for x in 0 to 16 loop
+            s_glbX <= std_logic_vector(to_unsigned(x, 10));
+            wait for PERIOD;
+        end loop;
+        -- remettre le viewport à x=0
+        s_glbX <= (others => '0');
+        wait for PERIOD;
+        
+        -- set la position de l'acteur à (x, y)= (128, 256)
+        s_initPosition <= '1';
+        s_positionX <= std_logic_vector(to_unsigned(128, 10));
+        s_positionY <= std_logic_vector(to_unsigned(256, 10));
+        wait for period;
+        s_initPosition <= '0';
+        wait for period;
+        
+        -- reset la position de l'acteur à (0, 0)
+        s_initPosition <= '1';
+        s_positionX <= (others => '0');
+        s_positionY <= (others => '0');
+        wait for period;
+        s_initPosition <= '0';
+        wait for period;
+        
+        -- Mettre le viewport dans le coins de l'acteur (16, 8)
+        s_glbY <= std_logic_vector(to_unsigned(8, 10));
+        s_glbx <= std_logic_vector(to_unsigned(16, 10));
+        wait for PERIOD;
+        
+        -- Déplacer l'acteur en diagonal 
+        -- Le output de la position dans la tuile devrait baisser jusqu'à ce que 
+        -- le premier pixel de la tuile soit à (16, 8)
+        s_moveEnable <= '1';
+        wait for period;
+        for x in 0 to 15 loop
+            s_offset_x <= "000001";
             s_offset_y <= "000001";
+            wait for PERIOD;
+        end loop;
+        
+        -- Déplacer l'acteur de x=16 à x=0 en incrément de 1
+        for x in 0 to 15 loop
+            s_offset_x <= "100001";
+            s_offset_y <= "000000";
+            wait for PERIOD;
+        end loop;
+        
+        -- Déplacer l'acteur de y=8 à y=0 par incréments de 1
+        for y in 0 to 8 loop
+            s_offset_x <= "000000";
+            s_offset_y <= "100001";
             wait for PERIOD;
         end loop;
         
         s_moveEnable <= '0';
 
-        
         wait for PERIOD;
         wait for PERIOD;
         wait for PERIOD;
