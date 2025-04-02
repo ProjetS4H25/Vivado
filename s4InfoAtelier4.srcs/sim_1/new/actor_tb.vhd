@@ -16,8 +16,8 @@ architecture sim of tb_actor is
          i_initPos     : in  std_logic;
          i_tuileId1    : in  std_logic_vector (5 downto 0);
          i_tuileId2    : in  std_logic_vector (5 downto 0);
-         i_globalX     : in  std_logic_vector (9 downto 0);
-         i_globalY     : in  std_logic_vector (9 downto 0);
+         i_globalX     : in  std_logic_vector (8 downto 0);
+         i_globalY     : in  std_logic_vector (8 downto 0);
          i_moveOffsetX : in  std_logic_vector (5 downto 0);
          i_moveOffsetY : in  std_logic_vector (5 downto 0);
          i_moveEnable  : in  std_logic;
@@ -33,8 +33,8 @@ architecture sim of tb_actor is
     signal i_initPos     : std_logic := '0';
     signal i_tuileId1    : std_logic_vector (5 downto 0) := (others => '0');
     signal i_tuileId2    : std_logic_vector (5 downto 0) := (others => '0');
-    signal i_globalX     : std_logic_vector (9 downto 0) := (others => '0');
-    signal i_globalY     : std_logic_vector (9 downto 0) := (others => '0');
+    signal i_globalX     : std_logic_vector (8 downto 0) := (others => '0');
+    signal i_globalY     : std_logic_vector (8 downto 0) := (others => '0');
     signal i_moveOffsetX : std_logic_vector (5 downto 0) := (others => '0');
     signal i_moveOffsetY : std_logic_vector (5 downto 0) := (others => '0');
     signal i_moveEnable  : std_logic := '0';
@@ -93,8 +93,8 @@ begin
 
         -- Set actor position to (40,20)
         i_initPos <= '1';
-        i_globalX <= "0000101000"; -- 40
-        i_globalY <= "0000010100"; -- 20
+        i_globalX <= "000101000"; -- 40
+        i_globalY <= "000010100"; -- 20
         wait for 20 ns;
         i_initPos <= '0';
         wait for 20 ns;
@@ -114,13 +114,21 @@ begin
         wait for 20 ns;
         i_moveEnable  <= '0';
         wait for 20 ns;
+        
+--        -- negative move:
+--        i_moveEnable  <= '1';
+--        i_moveOffsetX <= "100011";  -- -3
+--        i_moveOffsetY <= "100010";  -- -2
+--        wait for 20 ns;
+--        i_moveEnable  <= '0';
+--        wait for 20 ns;
 
         -- region attendu de l'acteur
         -- currentPosX_reg(40) a currentPosX_reg+15, currentPosY_reg(20) a currentPosY_reg+7.
         for y_val in 20 to 27 loop
             for x_val in 40 to 55 loop
-                i_globalX <= std_logic_vector(to_unsigned(x_val, 10));
-                i_globalY <= std_logic_vector(to_unsigned(y_val, 10));
+                i_globalX <= std_logic_vector(to_unsigned(x_val, 9));
+                i_globalY <= std_logic_vector(to_unsigned(y_val, 9));
                 wait for 10 ns;
             end loop;
         end loop;
