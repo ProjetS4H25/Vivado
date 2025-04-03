@@ -124,11 +124,11 @@
     <Step Id="write_bitstream"/>
     <Step Id="write_device_image"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="atelier4_pixelDataToVideoStre_0_3"/>
   <BlockFileSet Type="BlockSrcs" Name="atelier4_axi_vdma_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="atelier4_pixelDataToVideoStre_0_3"/>
   <BlockFileSet Type="BlockSrcs" Name="atelier4_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="bd_0837_hsc_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="atelier4_v_proc_ss_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="atelier4_testPatternGen2_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="atelier4_v_proc_ss_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bd_0837_hsc_0"/>
   <BlockFileSet Type="BlockSrcs" Name="bd_0837_vsc_0"/>
 </GenRun>
