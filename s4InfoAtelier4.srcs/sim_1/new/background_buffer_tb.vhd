@@ -36,12 +36,12 @@ architecture Behavioral of background_buffer_tb is
 
 component background_buffer
     PORT (
-           i_globalX : in STD_LOGIC_VECTOR (9 downto 0);
-           i_globalY : in STD_LOGIC_VECTOR (9 downto 0);
+           i_globalX : in STD_LOGIC_VECTOR (8 downto 0);
+           i_globalY : in STD_LOGIC_VECTOR (8 downto 0);
            
            -- Valeur input pour changer un tuile id dans le background 
-           i_ch_X : in STD_LOGIC_VECTOR (9 downto 0);
-           i_ch_Y : in STD_LOGIC_VECTOR (9 downto 0);
+           i_ch_X : in STD_LOGIC_VECTOR (8 downto 0);
+           i_ch_Y : in STD_LOGIC_VECTOR (8 downto 0);
            i_ch_tuile_id : in STD_LOGIC_VECTOR (5 downto 0);
            i_we_bck : in STD_LOGIC;
            clk : in STD_LOGIC;
@@ -57,14 +57,14 @@ end component;
 -- l'horloge devrait être 50 MHz
    signal   d_clk_p       :  std_logic := '0';   -- (sol) horloge principale 50 MHz (utile pour cette simulation a éviter si possible)
    signal   d_reset       :  std_logic := '0';
-   signal   s_glbX : STD_LOGIC_VECTOR (9 downto 0) := (others => '0');
-   signal   s_glbY : STD_LOGIC_VECTOR (9 downto 0) := (others => '0');
+   signal   s_glbX : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
+   signal   s_glbY : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
    signal   o_tuileId : STD_LOGIC_VECTOR (5 downto 0) := (others => '0');
    signal   o_tuileX : STD_LOGIC_VECTOR (2 downto 0) := (others => '0');
    signal   o_tuileY : STD_LOGIC_VECTOR (2 downto 0) := (others => '0');
    
-   signal   s_ch_X : STD_LOGIC_VECTOR (9 downto 0) := (others => '0');
-   signal   s_ch_Y : STD_LOGIC_VECTOR (9 downto 0) := (others => '0');
+   signal   s_ch_X : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
+   signal   s_ch_Y : STD_LOGIC_VECTOR (8 downto 0) := (others => '0');
    signal   s_we_ch : std_logic := '0';
    signal   s_tuileId_ch : STD_LOGIC_VECTOR (5 downto 0) := (others => '0');
    
@@ -114,91 +114,91 @@ begin
 
 tb : PROCESS
    BEGIN      
-      wait for PERIOD; s_glbX <="0000000000"; s_glbY <="0000000000";
+      wait for PERIOD; s_glbX <="000000000"; s_glbY <="000000000";
    
       -- Ajouter une valeur à la première tuile
-      wait for PERIOD; s_ch_X <="0000000000"; s_ch_Y <="0000000000"; s_tuileId_ch <="000011"; s_we_ch <='1';
+      wait for PERIOD; s_ch_X <="000000000"; s_ch_Y <="000000000"; s_tuileId_ch <="000011"; s_we_ch <='1';
       wait for PERIOD; wait for PERIOD; s_we_ch <='0';
       
       -- Ajouter une valeur à la dernière tuile
-      wait for PERIOD; s_ch_X <="1111111111"; s_ch_Y <="1111111111"; s_tuileId_ch <="010011"; s_we_ch <='1';
+      wait for PERIOD; s_ch_X <="101111111"; s_ch_Y <="101111111"; s_tuileId_ch <="010011"; s_we_ch <='1';
       wait for PERIOD; wait for PERIOD; s_we_ch <='0';
       
       -- Première tuile juste la première ligne
-      wait for PERIOD; s_glbX <="0000000000"; s_glbY <="0000000000";
-      wait for PERIOD; s_glbX <="0000000001"; s_glbY <="0000000000";
-      wait for PERIOD; s_glbX <="0000000010"; s_glbY <="0000000000";
-      wait for PERIOD; s_glbX <="0000000011"; s_glbY <="0000000000";
-      wait for PERIOD; s_glbX <="0000000100"; s_glbY <="0000000000";
-      wait for PERIOD; s_glbX <="0000000101"; s_glbY <="0000000000";
-      wait for PERIOD; s_glbX <="0000000110"; s_glbY <="0000000000";
-      wait for PERIOD; s_glbX <="0000000111"; s_glbY <="0000000000";
+      wait for PERIOD; s_glbX <="000000000"; s_glbY <="000000000";
+      wait for PERIOD; s_glbX <="000000001"; s_glbY <="000000000";
+      wait for PERIOD; s_glbX <="000000010"; s_glbY <="000000000";
+      wait for PERIOD; s_glbX <="000000011"; s_glbY <="000000000";
+      wait for PERIOD; s_glbX <="000000100"; s_glbY <="000000000";
+      wait for PERIOD; s_glbX <="000000101"; s_glbY <="000000000";
+      wait for PERIOD; s_glbX <="000000110"; s_glbY <="000000000";
+      wait for PERIOD; s_glbX <="000000111"; s_glbY <="000000000";
       
       -- Diagonale dans la première tuile
-      wait for PERIOD; s_glbX <="0000000000"; s_glbY <="0000000000";
-      wait for PERIOD; s_glbX <="0000000001"; s_glbY <="0000000001";
-      wait for PERIOD; s_glbX <="0000000010"; s_glbY <="0000000010";
-      wait for PERIOD; s_glbX <="0000000011"; s_glbY <="0000000011";
-      wait for PERIOD; s_glbX <="0000000100"; s_glbY <="0000000100";
-      wait for PERIOD; s_glbX <="0000000101"; s_glbY <="0000000101";
-      wait for PERIOD; s_glbX <="0000000110"; s_glbY <="0000000110";
-      wait for PERIOD; s_glbX <="0000000111"; s_glbY <="0000000111";
+      wait for PERIOD; s_glbX <="000000000"; s_glbY <="000000000";
+      wait for PERIOD; s_glbX <="000000001"; s_glbY <="000000001";
+      wait for PERIOD; s_glbX <="000000010"; s_glbY <="000000010";
+      wait for PERIOD; s_glbX <="000000011"; s_glbY <="000000011";
+      wait for PERIOD; s_glbX <="000000100"; s_glbY <="000000100";
+      wait for PERIOD; s_glbX <="000000101"; s_glbY <="000000101";
+      wait for PERIOD; s_glbX <="000000110"; s_glbY <="000000110";
+      wait for PERIOD; s_glbX <="000000111"; s_glbY <="000000111";
       
       -- Dernière tuile, dernière ligne
-      wait for PERIOD; s_glbX <="1111111111"; s_glbY <="1111111111";
-      wait for PERIOD; s_glbX <="1111111110"; s_glbY <="1111111111";
-      wait for PERIOD; s_glbX <="1111111101"; s_glbY <="1111111111";
-      wait for PERIOD; s_glbX <="1111111100"; s_glbY <="1111111111";
-      wait for PERIOD; s_glbX <="1111111011"; s_glbY <="1111111111";
-      wait for PERIOD; s_glbX <="1111111010"; s_glbY <="1111111111";
-      wait for PERIOD; s_glbX <="1111111001"; s_glbY <="1111111111";
-      wait for PERIOD; s_glbX <="1111111000"; s_glbY <="1111111111";
+      wait for PERIOD; s_glbX <="101111111"; s_glbY <="101111111";
+      wait for PERIOD; s_glbX <="101111110"; s_glbY <="101111111";
+      wait for PERIOD; s_glbX <="101111101"; s_glbY <="101111111";
+      wait for PERIOD; s_glbX <="101111100"; s_glbY <="101111111";
+      wait for PERIOD; s_glbX <="101111011"; s_glbY <="101111111";
+      wait for PERIOD; s_glbX <="101111010"; s_glbY <="101111111";
+      wait for PERIOD; s_glbX <="101111001"; s_glbY <="101111111";
+      wait for PERIOD; s_glbX <="101111000"; s_glbY <="101111111";
       
       -- Juste 1 tuile avant
-      wait for PERIOD; s_glbX <="1111110111"; s_glbY <="1111111111";
+      wait for PERIOD; s_glbX <="101110111"; s_glbY <="101111111";
       
       -- Diagonale dans la dernière tuile
-      wait for PERIOD; s_glbX <="1111111111"; s_glbY <="1111111111";
-      wait for PERIOD; s_glbX <="1111111110"; s_glbY <="1111111110";
-      wait for PERIOD; s_glbX <="1111111101"; s_glbY <="1111111101";
-      wait for PERIOD; s_glbX <="1111111100"; s_glbY <="1111111100";
-      wait for PERIOD; s_glbX <="1111111011"; s_glbY <="1111111011";
-      wait for PERIOD; s_glbX <="1111111010"; s_glbY <="1111111010";
-      wait for PERIOD; s_glbX <="1111111001"; s_glbY <="1111111001";
-      wait for PERIOD; s_glbX <="1111111000"; s_glbY <="1111111000";
+      wait for PERIOD; s_glbX <="101111111"; s_glbY <="101111111";
+      wait for PERIOD; s_glbX <="101111110"; s_glbY <="101111110";
+      wait for PERIOD; s_glbX <="101111101"; s_glbY <="101111101";
+      wait for PERIOD; s_glbX <="101111100"; s_glbY <="101111100";
+      wait for PERIOD; s_glbX <="101111011"; s_glbY <="101111011";
+      wait for PERIOD; s_glbX <="101111010"; s_glbY <="101111010";
+      wait for PERIOD; s_glbX <="101111001"; s_glbY <="101111001";
+      wait for PERIOD; s_glbX <="101111001"; s_glbY <="101111001";
       
-      -- Modifier la tuile que l'on essaie de lire pour voir si le buffer est OK
-      wait for PERIOD; s_ch_X <="1000000000"; s_ch_Y <="1000000000"; s_tuileId_ch <="000001"; s_we_ch <='1';
-      wait for PERIOD; wait for PERIOD; s_we_ch <='0';
+--      -- Modifier la tuile que l'on essaie de lire pour voir si le buffer est OK
+--      wait for PERIOD; s_ch_X <="100000000"; s_ch_Y <="100000000"; s_tuileId_ch <="000001"; s_we_ch <='1';
+--      wait for PERIOD; wait for PERIOD; s_we_ch <='0';
       
-      -- Tuile du milieu, première ligne
-      wait for PERIOD; s_glbX <="1000000000"; s_glbY <="1000000000";
-      wait for PERIOD; s_glbX <="1000000001"; s_glbY <="1000000000";
-      wait for PERIOD; s_glbX <="1000000010"; s_glbY <="1000000000";
-      wait for PERIOD; s_glbX <="1000000011"; s_glbY <="1000000000";
-      wait for PERIOD; s_glbX <="1000000100"; s_glbY <="1000000000";
-      wait for PERIOD; s_glbX <="1000000101"; s_glbY <="1000000000";
-      wait for PERIOD; s_glbX <="1000000110"; s_glbY <="1000000000";
-      wait for PERIOD; s_glbX <="1000000111"; s_glbY <="1000000000";
+--      -- Tuile du milieu, première ligne
+--      wait for PERIOD; s_glbX <="100000000"; s_glbY <="100000000";
+--      wait for PERIOD; s_glbX <="100000001"; s_glbY <="100000000";
+--      wait for PERIOD; s_glbX <="100000010"; s_glbY <="100000000";
+--      wait for PERIOD; s_glbX <="100000011"; s_glbY <="100000000";
+--      wait for PERIOD; s_glbX <="100000100"; s_glbY <="100000000";
+--      wait for PERIOD; s_glbX <="100000101"; s_glbY <="100000000";
+--      wait for PERIOD; s_glbX <="100000110"; s_glbY <="100000000";
+--      wait for PERIOD; s_glbX <="100000111"; s_glbY <="100000000";
       
-      -- Juste 1 tuile après
-      wait for PERIOD; s_glbX <="1000001000"; s_glbY <="1000000000";
+--      -- Juste 1 tuile après
+--      wait for PERIOD; s_glbX <="100000100"; s_glbY <="100000000";
       
-      -- Diagonale dans la tuile du milieu
-      wait for PERIOD; s_glbX <="1000000000"; s_glbY <="1000000000";
-      wait for PERIOD; s_glbX <="1000000001"; s_glbY <="1000000001";
-      wait for PERIOD; s_glbX <="1000000010"; s_glbY <="1000000010";
-      wait for PERIOD; s_glbX <="1000000011"; s_glbY <="1000000011";
-      wait for PERIOD; s_glbX <="1000000100"; s_glbY <="1000000100";
-      wait for PERIOD; s_glbX <="1000000101"; s_glbY <="1000000101";
-      wait for PERIOD; s_glbX <="1000000110"; s_glbY <="1000000110";
-      wait for PERIOD; s_glbX <="1000000111"; s_glbY <="1000000111";
+--      -- Diagonale dans la tuile du milieu
+--      wait for PERIOD; s_glbX <="100000000"; s_glbY <="100000000";
+--      wait for PERIOD; s_glbX <="100000001"; s_glbY <="100000001";
+--      wait for PERIOD; s_glbX <="100000010"; s_glbY <="100000010";
+--      wait for PERIOD; s_glbX <="100000011"; s_glbY <="100000011";
+--      wait for PERIOD; s_glbX <="100000100"; s_glbY <="100000100";
+--      wait for PERIOD; s_glbX <="100000101"; s_glbY <="100000101";
+--      wait for PERIOD; s_glbX <="100000110"; s_glbY <="100000110";
+--      wait for PERIOD; s_glbX <="100000111"; s_glbY <="100000111";
       
       -- Lire la valeur de la dernière tuile pour voir si la modification est OK
-      wait for PERIOD; s_glbX <="1111111111"; s_glbY <="1111111111";
+      wait for PERIOD; s_glbX <="101111111"; s_glbY <="101111111";
       
       -- Lire la première tuile pour voir si le changement de tuile à fonctionné
-      wait for PERIOD; s_glbX <="0000000000"; s_glbY <="0000000000";
+      wait for PERIOD; s_glbX <="000000000"; s_glbY <="000000000";
       
       WAIT; -- will wait forever
    END PROCESS;

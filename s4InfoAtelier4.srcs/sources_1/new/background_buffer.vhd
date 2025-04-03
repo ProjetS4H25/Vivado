@@ -35,12 +35,12 @@ use ieee.numeric_std.all;
 entity background_buffer is
     Port ( 
            -- Valeur que l'on reçois du ViewPort pour faire afficher le bon pixel
-           i_globalX : in STD_LOGIC_VECTOR (9 downto 0);
-           i_globalY : in STD_LOGIC_VECTOR (9 downto 0);
+           i_globalX : in STD_LOGIC_VECTOR (8 downto 0);
+           i_globalY : in STD_LOGIC_VECTOR (8 downto 0);
            
            -- Valeur input pour changer un tuile id dans le background 
-           i_ch_X : in STD_LOGIC_VECTOR (9 downto 0);
-           i_ch_Y : in STD_LOGIC_VECTOR (9 downto 0);
+           i_ch_X : in STD_LOGIC_VECTOR (8 downto 0);
+           i_ch_Y : in STD_LOGIC_VECTOR (8 downto 0);
            i_ch_tuile_id : in STD_LOGIC_VECTOR (5 downto 0);
            i_we_bck : in STD_LOGIC;
            clk : in STD_LOGIC;
@@ -53,34 +53,34 @@ end background_buffer;
 
 architecture Behavioral of background_buffer is
 
-signal s_div8_X : std_logic_vector (9 downto 0);
-signal s_div8_Y : std_logic_vector (9 downto 0);
-signal s_index : std_logic_vector (13 downto 0);
-signal s_line_fact : std_logic_vector (13 downto 0);
+signal s_div8_X : std_logic_vector (8 downto 0);
+signal s_div8_Y : std_logic_vector (8 downto 0);
+signal s_index : std_logic_vector (11 downto 0);
+signal s_line_fact : std_logic_vector (11 downto 0);
 
-signal s_div8_chX : std_logic_vector (9 downto 0);
-signal s_div8_chY : std_logic_vector (9 downto 0);
-signal s_index_ch : std_logic_vector (13 downto 0);
-signal s_line_fact_ch : std_logic_vector (13 downto 0);
+signal s_div8_chX : std_logic_vector (8 downto 0);
+signal s_div8_chY : std_logic_vector (8 downto 0);
+signal s_index_ch : std_logic_vector (11 downto 0);
+signal s_line_fact_ch : std_logic_vector (11 downto 0);
 
 signal next_tuile  : std_logic_vector (5 downto 0) := (others => '0');
-signal next_index : std_logic_vector (13 downto 0) := (others => '0');
+signal next_index : std_logic_vector (11 downto 0) := (others => '0');
 
 type tuileId is array (natural range <>) of std_logic_vector (5 downto 0);
-signal back_buffer : tuileId(0 to 16383) := (others => (others => '0'));
+signal back_buffer : tuileId(0 to 3071) := (others => (others => '0'));
 
 begin
 
 -- Trouver l'index à faire afficher
 s_div8_X <= std_logic_vector(unsigned(i_globalX) srl 3);
 s_div8_Y <= std_logic_vector(unsigned(i_globalY) srl 3);
-s_line_fact <= std_logic_vector(resize(unsigned(s_div8_Y) * 127, 14));
+s_line_fact <= std_logic_vector(resize(unsigned(s_div8_Y) * 48, 12));
 s_index <= std_logic_vector(unsigned(s_div8_X) + unsigned(s_div8_Y) + unsigned(s_line_fact));
 
 -- Trouver l'index à modifier
 s_div8_chX <= std_logic_vector(unsigned(i_ch_X) srl 3);
 s_div8_chY <= std_logic_vector(unsigned(i_ch_Y) srl 3);
-s_line_fact_ch <= std_logic_vector(resize(unsigned(s_div8_chY) * 127, 14));
+s_line_fact_ch <= std_logic_vector(resize(unsigned(s_div8_chY) * 48, 12));
 s_index_ch <= std_logic_vector(unsigned(s_div8_chX) + unsigned(s_div8_chY) + unsigned(s_line_fact_ch));
 
 -- Aller changer la valeur d'une tuile id dans le background.
